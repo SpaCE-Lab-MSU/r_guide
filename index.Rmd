@@ -1,0 +1,15 @@
+--- 
+title: "R Guide for the MSU SpaCE Lab"
+author: "Patrick Bills, Phoebe Zarnetske, ..."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab  "
+---
+
+# index intro
+
+this is the index.Rmd file.   
