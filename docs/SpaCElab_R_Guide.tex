@@ -1,0 +1,321 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{intro}{%
+\section{Introduction}\label{intro}}
+
+This guide is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.
+
+A programming ``style'' guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc. Thee are usually written for professional programmers. This guide is for R users of varying skill levels and has approaches to broad programming issues *like how to manage configuration and data) that we use as a lab to allow for collaboration and longevity. Nothing in here is set in stone and is open for suggestion and additions. There will be some formatting and style requirement. For coding style, we refer to, but don't require the use of the ``tidy verse'' style guide originally written at google and adopted and amended by Hadley Wickham: (\url{https://style.tidyverse.org/}){[}\url{https://style.tidyverse.org/}{]}
+
+Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing. Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.
+
+As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab. This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g.~EarthEngine), or shell scripts (e.g.~Slurm scripts for batch computing on the MSU High Performance Computer).
+
+\hypertarget{contributing}{%
+\section{Contributing}\label{contributing}}
+
+We need your help. Please contribute or insert comments and your experiences in this guide. This is written in a form of \href{https://r4ds.had.co.nz/r-markdown.html}{RMarkdown} called ``bookdown.'' (there will evenntually be a chapter here about Rmarkdown)
+
+Please contribute if you've never used bookdown. We are delighted if you want to contribute and don't want you to worry about formatting or bookdown tricks. We are interested in your ideas. Simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file. If you want to add a new chapter, simply start a new Rmarkdown file, preface with a header (e.g.~\texttt{\#\ Tracking\ Woozles}) which will be the chapter title. We can incorporate these changes and edit for bookdown tech as needed.
+
+This project exists on a public github project, so please fork, make changes and create a merge request.
+
+Alternatively if you are unsure or just have a short idea or correction, you may submit a github issue to this project (see \href{https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue}{Github.com:Creating an issue} which requires a github account.
+
+If you are a lab collaborator and have a found a successful technique we want to hear about it. Consider a new chapter describing this and pointers to examples on github.
+
+\hypertarget{prerequisites}{%
+\subsection{Prerequisites}\label{prerequisites}}
+
+You need a plain text editor that can create Markdown (we use Rstudio). Word Processors insert unreadable characters (curly quotes). When writing markdown ou can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+
+To render this book, you need the \textbf{bookdown} package, which can be installed from CRAN or Github:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
+
+To compile this book to HTML\ldots{} \textbf{instructions needed here} The project is set to render the HTML into the `docs' folder which will make it easy to publish as an HTML website (e.g.~github pages).
+
+To compile this book to to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
+
+\#Documentation
+
+Documenting your work may be the most important part of this style guide.\\
+There are many ways to get a script to do it's work, but a script is useless if we don't know what it does, and how to use it. There are two main types of in-script documentation : documentation suggested and structure for the lab, and documentation done for R packaging using the program Roxygen2. Roxygen2 is a way to write comments in your code that can automatically be turned into R help documentation. This guide currently does not mention that, but focuses on basics for docs, but these are not exclusive and eventually the stuff here should be made Roxygen2 formatted. Rstudio has features to make it easy to write Roxygen2-style comments.
+
+The following in R code all start with Comments (\#)
+All scripts need a good description in the beginning - what does this script do? What kind of data does it read in and what does it output?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# TITLE: name of the script}
+\CommentTok{# AUTHORS (list anyone contributing to the file)}
+\CommentTok{# COLLABORATORS (other people involved in the wider project but not necessarily on the script)}
+\CommentTok{# DATA INPUT (a brief description of the data read in through the script, including what format it’s in)}
+\CommentTok{# DATA OUTPUT (a brief description of the data output from through the script, including what format it’s in)}
+\CommentTok{# PROJECT (what overarching project this is part of: in this case it’s Frugivoria)}
+\CommentTok{# DATE (initiation date of script, plus any major update dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+NOTE : this guide was written without consideration for the Roxygen documentation system and if you are working on an R package, you should use that system but incorporate as much of this as possible.   See these great introductions to this system : https://kbroman.org/pkg_primer/pages/docs.html  and http://r-pkgs.had.co.nz/man.html
+
+Note also that Roxygen2 focus is on creating documentation for using functions, not the provenance of a set of scripts which is crucial for a research project. .   
+\end{verbatim}
+
+\hypertarget{configuration-and-r-scripts}{%
+\section{Configuration and R scripts}\label{configuration-and-r-scripts}}
+
+This is part of the solution for working with configuration in your R scripts. We are assuming that you want to share your scripts one for collaboration but also for reproducibility. One constant problem is scripts need to read files from somewhere, and everyone's computer has different paths, or the paths differ when on the HPC. We often see scripts with the configuration variables at the top of the script, and you have to edit those to your environment, or comment them out. But then those go into the git repository, so collaborators have to change them back. Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example. It's hard to track down all the places where you have to change these parameters (although global search/replace helps). But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project
+Solution
+
+R has a built in feature to read a file called .Renviron exactly for this purpose. Using files that start with ``.'' (so-called dot-files) for configuration is common in Linux, where R was born. Note There are a couple of libraries to make this a bit more slick, but this document describes only features that are part of Base R. We can add description of how to incorporate those below
+
+Good summary of .Renviron : www.dartistics.com/renviron.html
+
+Not a bad summary of Environment variables : \url{https://en.wikipedia.org/wiki/Environment_variable}
+
+More detail on Environment vars in Mac/Linux : \url{https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30}
+
+To see how R reads dot-files .Renviron and .Rprofile, read the R help ?Startup or see this copy on the web ( I don't know how current the copy is) : \url{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Startup}
+
+Note that there is also a package called ``startup'' on CRAN which is an enhancement and not part of base R.
+
+.Renviron is for setting values for script configuration. It uses the Operating System Environment to store these (e.g.~not the same as an R environment), e.g.~``environment variables'' Any program can read or set an environment variable. One commonly used variable is \$HOME which is your home directory.
+
+\hypertarget{quick-points-on-configuration}{%
+\subsection{Quick Points on Configuration}\label{quick-points-on-configuration}}
+
+when R starts it looks for two files
+
+.Renviron \textless- set of environment variables listed in here. Written as shell script
+
+.Rprofile \textless- options for how you like to use R. written as R code
+
+If these files are in the local directory, it reads those and stops.
+
+If not it looks for them in your home directory (global settings). It only reads one version (e.g.~it doesn't read local then also read global settings)
+
+\hypertarget{using-renviron}{%
+\subsection{Using Renviron}\label{using-renviron}}
+
+\begin{verbatim}
+#  .Renviron file, each person makes their own copy of .Renviron  Note you can use existing operating system variables in this file.  This example works for Linux /Mac 
+API_KEY=abc123
+OUTPUT_PATH="$HOME/Documents/NEONOrganism/DataPull"   
+\end{verbatim}
+
+inside the R code, which does not have to be edited by each person
+
+\hypertarget{this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration}{%
+\section{this would have to go at the top of each function that needed this configuration}\label{this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration}}
+
+You'd have to set these at the top of each script.
+
+Alternatively, I would try to avoid having a handful of scripts, to which you'd have to copy/paste those same statements at the top. The software engineering principle here is ``Don't Repeat Yourself'' or\ldots{} keep your code DRY. To do so, wrap code into functions as much as possible, and pass those as configuration to the function. That advantage is that is make those functions testable and portable
+
+The main script to run then would
+
+Workflow to use lab code that needs configuration in Renviron:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  clone the repository
+\item
+  in the README.md look to see which configuration settings are needed
+  and/or looked for a file Renviron\_example.txt
+\item
+  create a new .Renviron file in the top level folder of the repository with the necessary configuration
+\item
+  open a new Rstudio project in that folder (or start R) which would then read the .Renviron settings
+\item
+  run the code
+\item
+  repeat for different environment (e.g.~laptop vs HPCC)
+\end{enumerate}
+
+workflow when using configuration in your code with Renviron:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  put configuration in .Renviron and add Sys.getenv() to set those vars in R
+\item
+  test
+\item
+  add those configuration vars in Renivron\_example.txt with comments to describe possible values
+\item
+  add a list of the configuration need in the README.md
+\item
+  make sure .gitignore has .Renviron listed in it to keep it out of github
+\item
+  optional but polite thing to do for other users of your code: wrap the Sys.getenv() with an if statement or exception handling to
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii})}
+  \tightlist
+  \item
+    check that the var is set in .Renviron
+  \item
+    set a reasonable default if it's not
+  \item
+    test that the value the user supplied (or default) actually work
+  \item
+    throw exception if they don't and print message which value needs to be set and where to look for guidance (see README)
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{file-paths}{%
+\subsection{File Paths}\label{file-paths}}
+
+File paths for data files are a special case when working with configuration and there are different ways to handle them. One is to use the same directory in all of you
+
+\hypertarget{complimentary-packages}{%
+\subsection{Complimentary Packages}\label{complimentary-packages}}
+
+These other packages/features work to make configuration easier, or could be part of a configuration strategy.
+
+startup: \url{https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html}
+Package from Henrik Bengtsson to make it easier to work with .Renviron and Rprofile. Don't know how well is plays with config
+
+config: \url{https://cran.r-project.org/web/packages/config/vignettes/introduction.html}\\
+Package from Rstudio to make it easy to have different Environments so you can easily switch out configuration, for example the paths/data connections you'd use for testing would be different for local and from HPCC. This is especially important when working with ``production'' or shared databases as you want to develop/test code on a local copy before running it on the central database or one used by an active web application
+
+dotenv: older package that borrows from python. Does not use Renviron but a ``dot-env'' or ``.env'' file just like Renviron. I think using Renviron makes more sense but mention this as it comes up when searching. A package like this is required in Python because there is nothing built-in to handle config.
+
+options: \url{https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html}
+part of base R and a way to set options globally so you don't have to send them as parameter to every function. This is complimentary to Renviron: set config values in Renviron, use the options() function to set global options var in R based on those env variables.
+
+Profile or Customization : the .Rprofile should be used to customize your R experience, not set configuration for a particular set of scripts. See \url{https://www.statmethods.net/interface/customizing.html}
+
+\end{document}
