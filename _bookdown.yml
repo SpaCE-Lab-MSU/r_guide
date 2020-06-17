@@ -9,6 +9,7 @@ rmd_files: [
   
   "documentation.Rmd",
   "configuration.Rmd",
-  "r_markdown.Rmd"
+  "r_markdown.Rmd",
+  "package_management.Rmd",
 
 ]
