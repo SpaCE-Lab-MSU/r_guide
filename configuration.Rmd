@@ -1,9 +1,11 @@
-# Configuration and R scripts
+# Configuration
 
-This is part of the solution for working with configuration in your R scripts.    We are assuming that you want to share your scripts one for collaboration but also for reproducibility.    One constant problem is scripts need to read files from somewhere, and everyone's computer has different paths, or the paths differ when on the HPC.    We often see scripts with the configuration variables at the top of the script,  and you have to edit those to your environment, or comment them out.  But then those go into the git repository, so collaborators have to change them back.    Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example.  It's hard to track down all the places where you have to change these parameters (although global search/replace helps).   But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project
+Some details about your code depends on who is running it, or where you are running it, or requires personal secrets such as API keys or passwords.   If details are hard-coded into your functions or scripts, it will be hard to share your scripts with collaborators but also for reproducibility.    
+
+One constant problem is scripts need to read files from somewhere, and everyone's computer has different paths, or the paths differ when run in a different environment (e.g. on a high performance computer).    We often see scripts with the configuration variables at the top of the script,  and you have to edit those to your environment, or comment them out.  But then those go into the git repository, so collaborators have to change them back.    Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example.  It's hard to track down all the places where you have to change these parameters (although global search/replace helps).   But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project
 Solution
 
-R has a built in feature to read a file called .Renviron exactly for this purpose.   Using files that start with "." (so-called dot-files) for configuration is common in Linux, where R was born.  Note There are a couple of libraries to make this a bit more slick, but this document describes only features that are part of Base R.   We can add description of how to incorporate those below
+R has a built in feature exactly for this purpose - automaticaly reading a file called `.Renviron` .   Using files that start with "." (so-called dot-files) for configuration is common in Linux (and these files are hidden).  Note There are a couple of libraries to make this a bit more slick, but this document describes only features that are part of Base R.   We can add description of how to incorporate those below
 
 Good summary of .Renviron : www.dartistics.com/renviron.html
 
@@ -31,52 +33,59 @@ If not it looks for them in your home directory (global settings).     It only r
  
 ## Using Renviron
 
-```
-#  .Renviron file, each person makes their own copy of .Renviron  Note you can use existing operating system variables in this file.  This example works for Linux /Mac 
+Example .Renviron file for you or one of your collaborators.  Each person makes their own copy of .Renviron.   Note you can use existing operating system variables in this file.  This example works for Linux/Mac.    Note that this is not R code, and no spaces are allowed around the `=` equals signs
+
+
+```{sh eval=FALSE}
+# .Renviron file for project X
 API_KEY=abc123
 OUTPUT_PATH="$HOME/Documents/NEONOrganism/DataPull"   
 ```
 
 
-inside the R code, which does not have to be edited by each person
+inside your R script or function (this does not need to be edited )
 
-# this would have to go at the top of each function that needed this configuration
 
-```{r include=FALSE}
+```{r eval=FALSE}
 output_path <- Sys.getenv('OUTPUT_PATH')
 api_key <- Sys.getenv('API_KEY')
 ```
 
-You'd have to set these at the top of each script. 
 
-Alternatively, I would try to avoid having a handful of scripts, to which you'd have to copy/paste those same statements at the top.   The software engineering principle here is "Don't Repeat Yourself" or... keep your code DRY.    To do so, wrap code into functions as much as possible, and pass those as configuration to the function.  That advantage is that is make those functions testable and portable 
+Thie code would be placed in your scripts prior to calling functions that needed these values.  For example a function that needed the output path
 
-```{r include=FALSE}
-computeStuff <- function(x,y, output_path, api_key){
 
-    # do stuff with api_key
-    # write stuff to output_path
+```{r eval=FALSE}
+saveStuff <- function(x,y, output_path){
 
+    # do stuff with x,y
+    # ...etc
+    output_file <- file.path(output_path,"myoutput.csv")    
+    write.csv(x = data.frame(x,y), file=output_file)
+    return(output_file)
+    # ... etc
 }
 ```
 
 The main script to run then would 
 
-```{r include=FALSE}
+```{r eval=FALSE}
+x = rnorm(100)
+y = rnorm(100)
 output_path <-Sys.getenv('OUTPUT_PATH')
-api_key <- Sys.getenv('API_KEY')
-x <- "something"
-y <- "else"
-
-results<- computeStuff(x, y, output_path, api_key)
+saved_file <- saveStuff(x, y, output_path)
 ```
 
 
-Workflow to use lab code that needs configuration  in Renviron:
+If your code requires configuration values and you use an .Renviron file, you note this in your project's README.md file, and should provide an example of values, or perhaps a file like `example.Renviron`
+
+
+
+Suggested Workflow to use lab code that needs configuration in Renviron:
 
 1. clone the repository
 2. in the README.md look to see which configuration settings are needed
-   and/or looked for a file Renviron_example.txt
+   and/or looked for an example file Renviron text file.  
 3. create a new .Renviron file in the top level folder of the repository with the necessary configuration
 4. open a new Rstudio project in that folder (or start R) which would then read the .Renviron settings
 5. run the code
@@ -84,35 +93,45 @@ Workflow to use lab code that needs configuration  in Renviron:
 
 workflow when using configuration in your code with Renviron:
 
-1. put configuration in .Renviron and add Sys.getenv() to set those vars in R
-2. test
-3. add those configuration vars in Renivron_example.txt with comments to describe possible values
-4. add a list of the configuration need in the README.md
-5. make sure .gitignore has .Renviron listed in it to keep it out of github
-6. optional but polite thing to do for other users of your code: wrap the Sys.getenv() with an if statement or exception handling to 
-    1) check that the var is set in .Renviron
-    2) set a reasonable default if it's not
-    3) test that the value the user supplied (or default) actually work
+1. put configuration in .Renviron and add Sys.getenv() calls to set those vars in R
+2. add those configuration vars in Renivron_example.txt with comments to describe possible values
+3. add a list of the configuration need in the README.md
+5. add .Renviron to your  [.gitignore](https://help.github.com/en/github/using-git/ignoring-files) file to keep it out of github
+
+
+An optional but polite thing to do for other users of your code is to check for these values  If the variable is not set, `Sys.genenv` returns Null.  
+    
+Can you set a reasonable default if it's not set in Renviron?
+If not, send a me
+You could test that the value the user supplied (or default) actually work
     4) throw exception if they don't and print message which value needs to be set and where to look for guidance (see README)
 
-## File Paths
+A good example of this is the rredlist package from Bioconductor that pulls data from the IUCN Redlist API.  This requires an API key, which the package suggested putting into `.Renviron` and there is a function that checks if the key provided is Null, or if it's in Renviron.  See 
 
-File paths for data files are a special case when working with configuration and there are different ways to handle them.   One is to use the same directory in all of you
+https://github.com/ropensci/rredlist/blob/master/R/zzz.R#L36
+
+Note the .Rprofile should be used to customize your R experience, not set configuration for a particular set of scripts.   See https://www.statmethods.net/interface/customizing.html  
 
 
-## Complimentary Packages
+## File Paths STandard Configuration
 
-These other packages/features work to make configuration easier, or could be part of a configuration strategy. 
+*TO BE WRITTEN*
 
-startup: https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html
+## R Packages for Configuration
+
+These other packages/features work to make configuration easier, or could be part of a configuration strategy.   They are not necessary but may make it easier if your project's configuration is complex.  
+
+**startup**: https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html
+
 Package from Henrik Bengtsson to make it easier to work with .Renviron and Rprofile.  Don't know how well is plays with config
 
-config: https://cran.r-project.org/web/packages/config/vignettes/introduction.html  
+**config**: https://cran.r-project.org/web/packages/config/vignettes/introduction.html
+
 Package from Rstudio to make it easy to have different Environments so you can easily switch out configuration, for example the paths/data connections you'd use for testing would be different for local and from HPCC.  This is especially important when working with "production" or shared databases as you want to develop/test code on a local copy before running it on the central database or one used by an active web application
 
-dotenv: older package that borrows from python.  Does not use Renviron but a "dot-env" or ".env" file just like Renviron.   I think using Renviron makes more sense but mention this as it comes up when searching.  A package like this is required in Python because there is nothing built-in to handle config. 
+**dotenv**: older package that borrows from python.  Does not use Renviron but a "dot-env" or ".env" file just like Renviron.   I think using Renviron makes more sense but mention this as it comes up when searching.  A package like this is required in Python because there is nothing built-in to handle config. 
 
-options: https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html
+**options**: https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html
+
 part of base R and a way to set options globally so you don't have to send them as parameter to every function.  This is complimentary to Renviron:  set config values in Renviron, use the options() function to set  global options var in R based on those env variables. 
 
-Profile or Customization :  the .Rprofile should be used to customize your R experience, not set configuration for a particular set of scripts.   See https://www.statmethods.net/interface/customizing.html

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide</title>
+  <title>Chapter 1 Documentation | MSU SpaCE Lab R Guide</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide" />
+  <meta property="og:title" content="Chapter 1 Documentation | MSU SpaCE Lab R Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide" />
+  <meta name="twitter:title" content="Chapter 1 Documentation | MSU SpaCE Lab R Guide" />
   
   <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="configuration-and-r-scripts.html"/>
-<link rel="next" href="contributing-to-this-guide.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="configuration.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,15 +134,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html"><i class="fa fa-check"></i><b>1</b> Configuration and R scripts</a>
+<li class="chapter" data-level="1" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>1</b> Documentation</a></li>
+<li class="chapter" data-level="2" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>2</b> Configuration</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>1.1</b> Quick Points on Configuration</a></li>
-<li class="chapter" data-level="1.2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#using-renviron"><i class="fa fa-check"></i><b>1.2</b> Using Renviron</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><i class="fa fa-check"></i><b>2</b> this would have to go at the top of each function that needed this configuration</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#file-paths"><i class="fa fa-check"></i><b>2.1</b> File Paths</a></li>
-<li class="chapter" data-level="2.2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#complimentary-packages"><i class="fa fa-check"></i><b>2.2</b> Complimentary Packages</a></li>
+<li class="chapter" data-level="2.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>2.1</b> Quick Points on Configuration</a></li>
+<li class="chapter" data-level="2.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>2.2</b> Using Renviron</a></li>
+<li class="chapter" data-level="2.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>2.3</b> File Paths STandard Configuration</a></li>
+<li class="chapter" data-level="2.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>2.4</b> R Packages for Configuration</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="contributing-to-this-guide.html"><a href="contributing-to-this-guide.html"><i class="fa fa-check"></i><b>3</b> Contributing to this guide</a>
 <ul>
@@ -167,61 +165,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> this would have to go at the top of each function that needed this configuration</h1>
-<p>You’d have to set these at the top of each script.</p>
-<p>Alternatively, I would try to avoid having a handful of scripts, to which you’d have to copy/paste those same statements at the top. The software engineering principle here is “Don’t Repeat Yourself” or… keep your code DRY. To do so, wrap code into functions as much as possible, and pass those as configuration to the function. That advantage is that is make those functions testable and portable</p>
-<p>The main script to run then would</p>
-<p>Workflow to use lab code that needs configuration in Renviron:</p>
-<ol style="list-style-type: decimal">
-<li>clone the repository</li>
-<li>in the README.md look to see which configuration settings are needed
-and/or looked for a file Renviron_example.txt</li>
-<li>create a new .Renviron file in the top level folder of the repository with the necessary configuration</li>
-<li>open a new Rstudio project in that folder (or start R) which would then read the .Renviron settings</li>
-<li>run the code</li>
-<li>repeat for different environment (e.g. laptop vs HPCC)</li>
-</ol>
-<p>workflow when using configuration in your code with Renviron:</p>
-<ol style="list-style-type: decimal">
-<li>put configuration in .Renviron and add Sys.getenv() to set those vars in R</li>
-<li>test</li>
-<li>add those configuration vars in Renivron_example.txt with comments to describe possible values</li>
-<li>add a list of the configuration need in the README.md</li>
-<li>make sure .gitignore has .Renviron listed in it to keep it out of github</li>
-<li>optional but polite thing to do for other users of your code: wrap the Sys.getenv() with an if statement or exception handling to
-<ol style="list-style-type: decimal">
-<li>check that the var is set in .Renviron</li>
-<li>set a reasonable default if it’s not</li>
-<li>test that the value the user supplied (or default) actually work</li>
-<li>throw exception if they don’t and print message which value needs to be set and where to look for guidance (see README)</li>
-</ol></li>
-</ol>
-<div id="file-paths" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> File Paths</h2>
-<p>File paths for data files are a special case when working with configuration and there are different ways to handle them. One is to use the same directory in all of you</p>
-</div>
-<div id="complimentary-packages" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Complimentary Packages</h2>
-<p>These other packages/features work to make configuration easier, or could be part of a configuration strategy.</p>
-<p>startup: <a href="https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html" class="uri">https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html</a>
-Package from Henrik Bengtsson to make it easier to work with .Renviron and Rprofile. Don’t know how well is plays with config</p>
-<p>config: <a href="https://cran.r-project.org/web/packages/config/vignettes/introduction.html" class="uri">https://cran.r-project.org/web/packages/config/vignettes/introduction.html</a><br />
-Package from Rstudio to make it easy to have different Environments so you can easily switch out configuration, for example the paths/data connections you’d use for testing would be different for local and from HPCC. This is especially important when working with “production” or shared databases as you want to develop/test code on a local copy before running it on the central database or one used by an active web application</p>
-<p>dotenv: older package that borrows from python. Does not use Renviron but a “dot-env” or “.env” file just like Renviron. I think using Renviron makes more sense but mention this as it comes up when searching. A package like this is required in Python because there is nothing built-in to handle config.</p>
-<p>options: <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a>
-part of base R and a way to set options globally so you don’t have to send them as parameter to every function. This is complimentary to Renviron: set config values in Renviron, use the options() function to set global options var in R based on those env variables.</p>
-<p>Profile or Customization : the .Rprofile should be used to customize your R experience, not set configuration for a particular set of scripts. See <a href="https://www.statmethods.net/interface/customizing.html" class="uri">https://www.statmethods.net/interface/customizing.html</a></p>
+<div id="documentation" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Documentation</h1>
+<p>Documenting your work may be the most important part of this style guide.<br />
+There are many ways to get a script to do it’s work, but a script is useless if we don’t know what it does, and how to use it. There are two main types of in-script documentation : documentation suggested and structure for the lab, and documentation done for R packaging using the program Roxygen2. Roxygen2 is a way to write comments in your code that can automatically be turned into R help documentation. This guide currently does not mention that, but focuses on basics for docs, but these are not exclusive and eventually the stuff here should be made Roxygen2 formatted. Rstudio has features to make it easy to write Roxygen2-style comments.</p>
+<p>The following in R code all start with Comments (#)
+All scripts need a good description in the beginning - what does this script do? What kind of data does it read in and what does it output?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="documentation.html#cb1-1"></a><span class="co"># TITLE: name of the script</span></span>
+<span id="cb1-2"><a href="documentation.html#cb1-2"></a><span class="co"># AUTHORS (list anyone contributing to the file)</span></span>
+<span id="cb1-3"><a href="documentation.html#cb1-3"></a><span class="co"># COLLABORATORS (other people involved in the wider project but not necessarily on the script)</span></span>
+<span id="cb1-4"><a href="documentation.html#cb1-4"></a><span class="co"># DATA INPUT (a brief description of the data read in through the script, including what format it’s in)</span></span>
+<span id="cb1-5"><a href="documentation.html#cb1-5"></a><span class="co"># DATA OUTPUT (a brief description of the data output from through the script, including what format it’s in)</span></span>
+<span id="cb1-6"><a href="documentation.html#cb1-6"></a><span class="co"># PROJECT (what overarching project this is part of: in this case it’s Frugivoria)</span></span>
+<span id="cb1-7"><a href="documentation.html#cb1-7"></a><span class="co"># DATE (initiation date of script, plus any major update dates)</span></span></code></pre></div>
+<pre><code>NOTE : this guide was written without consideration for the Roxygen documentation system and if you are working on an R package, you should use that system but incorporate as much of this as possible.   See these great introductions to this system : https://kbroman.org/pkg_primer/pages/docs.html  and http://r-pkgs.had.co.nz/man.html
 
-</div>
+Note also that Roxygen2 focus is on creating documentation for using functions, not the provenance of a set of scripts which is crucial for a research project. .   </code></pre>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="configuration-and-r-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contributing-to-this-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="configuration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

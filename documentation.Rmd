@@ -1,4 +1,4 @@
-#Documentation
+# Documentation
 
 Documenting your work may be the most important part of this style guide.  
 There are many ways to get a script to do it's work, but a script is useless if we don't know what it does, and how to use it.    There are two main types of in-script documentation : documentation suggested and structure for the lab, and documentation done for R packaging using the program Roxygen2.     Roxygen2 is a way to write comments in your code that can automatically be turned into R help documentation.    This guide currently does not mention that, but focuses on basics for docs, but these are not exclusive and eventually the stuff here should be made Roxygen2 formatted.    Rstudio has features to make it easy to write Roxygen2-style comments.  
@@ -6,7 +6,7 @@ There are many ways to get a script to do it's work, but a script is useless if 
 The following in R code all start with Comments (#) 
     All scripts need a good description in the beginning - what does this script do? What kind of data does it read in and what does it output?
 
-```{r }        
+```{r  eval=FALSE}        
 # TITLE: name of the script
 # AUTHORS (list anyone contributing to the file)
 # COLLABORATORS (other people involved in the wider project but not necessarily on the script)

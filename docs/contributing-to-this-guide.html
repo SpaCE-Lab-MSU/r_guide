@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"/>
+<link rel="prev" href="configuration.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,15 +134,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html"><i class="fa fa-check"></i><b>1</b> Configuration and R scripts</a>
+<li class="chapter" data-level="1" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>1</b> Documentation</a></li>
+<li class="chapter" data-level="2" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>2</b> Configuration</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>1.1</b> Quick Points on Configuration</a></li>
-<li class="chapter" data-level="1.2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#using-renviron"><i class="fa fa-check"></i><b>1.2</b> Using Renviron</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><i class="fa fa-check"></i><b>2</b> this would have to go at the top of each function that needed this configuration</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#file-paths"><i class="fa fa-check"></i><b>2.1</b> File Paths</a></li>
-<li class="chapter" data-level="2.2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#complimentary-packages"><i class="fa fa-check"></i><b>2.2</b> Complimentary Packages</a></li>
+<li class="chapter" data-level="2.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>2.1</b> Quick Points on Configuration</a></li>
+<li class="chapter" data-level="2.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>2.2</b> Using Renviron</a></li>
+<li class="chapter" data-level="2.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>2.3</b> File Paths STandard Configuration</a></li>
+<li class="chapter" data-level="2.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>2.4</b> R Packages for Configuration</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="contributing-to-this-guide.html"><a href="contributing-to-this-guide.html"><i class="fa fa-check"></i><b>3</b> Contributing to this guide</a>
 <ul>
@@ -178,9 +176,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Prerequisites</h2>
 <p>You need a plain text editor that can create Markdown (we use Rstudio). Word Processors insert unreadable characters (curly quotes). When writing markdown ou can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <p>To render this book, you need the <strong>bookdown</strong> package, which can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="contributing-to-this-guide.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb4-2"><a href="contributing-to-this-guide.html#cb4-2"></a><span class="co"># or the development version</span></span>
-<span id="cb4-3"><a href="contributing-to-this-guide.html#cb4-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="contributing-to-this-guide.html#cb7-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb7-2"><a href="contributing-to-this-guide.html#cb7-2"></a><span class="co"># or the development version</span></span>
+<span id="cb7-3"><a href="contributing-to-this-guide.html#cb7-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
 <p>it also may require the pandoc utility. On mac open the terminal install the (homebrew)[<a href="https://brew.sh/" class="uri">https://brew.sh/</a>] utility using there instructions, and then <code>install brew install pandoc</code></p>
 <p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
 <p>To compile this book to HTML… <strong>instructions needed here</strong> The project is set to render the HTML into the ‘docs’ folder which will make it easy to publish as an HTML website (e.g. github pages).</p>
@@ -193,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="configuration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

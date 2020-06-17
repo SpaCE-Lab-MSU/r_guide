@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="configuration-and-r-scripts.html"/>
+<link rel="next" href="documentation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,15 +134,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html"><i class="fa fa-check"></i><b>1</b> Configuration and R scripts</a>
+<li class="chapter" data-level="1" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>1</b> Documentation</a></li>
+<li class="chapter" data-level="2" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>2</b> Configuration</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>1.1</b> Quick Points on Configuration</a></li>
-<li class="chapter" data-level="1.2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#using-renviron"><i class="fa fa-check"></i><b>1.2</b> Using Renviron</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><i class="fa fa-check"></i><b>2</b> this would have to go at the top of each function that needed this configuration</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#file-paths"><i class="fa fa-check"></i><b>2.1</b> File Paths</a></li>
-<li class="chapter" data-level="2.2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#complimentary-packages"><i class="fa fa-check"></i><b>2.2</b> Complimentary Packages</a></li>
+<li class="chapter" data-level="2.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>2.1</b> Quick Points on Configuration</a></li>
+<li class="chapter" data-level="2.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>2.2</b> Using Renviron</a></li>
+<li class="chapter" data-level="2.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>2.3</b> File Paths STandard Configuration</a></li>
+<li class="chapter" data-level="2.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>2.4</b> R Packages for Configuration</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="contributing-to-this-guide.html"><a href="contributing-to-this-guide.html"><i class="fa fa-check"></i><b>3</b> Contributing to this guide</a>
 <ul>
@@ -180,22 +178,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing. Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.</p>
 <p>As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab. This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g. EarthEngine), or shell scripts (e.g. Slurm scripts for batch computing on the MSU High Performance Computer).</p>
 
-<p>#Documentation</p>
-<p>Documenting your work may be the most important part of this style guide.<br />
-There are many ways to get a script to do it’s work, but a script is useless if we don’t know what it does, and how to use it. There are two main types of in-script documentation : documentation suggested and structure for the lab, and documentation done for R packaging using the program Roxygen2. Roxygen2 is a way to write comments in your code that can automatically be turned into R help documentation. This guide currently does not mention that, but focuses on basics for docs, but these are not exclusive and eventually the stuff here should be made Roxygen2 formatted. Rstudio has features to make it easy to write Roxygen2-style comments.</p>
-<p>The following in R code all start with Comments (#)
-All scripts need a good description in the beginning - what does this script do? What kind of data does it read in and what does it output?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="co"># TITLE: name of the script</span></span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># AUTHORS (list anyone contributing to the file)</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># COLLABORATORS (other people involved in the wider project but not necessarily on the script)</span></span>
-<span id="cb1-4"><a href="index.html#cb1-4"></a><span class="co"># DATA INPUT (a brief description of the data read in through the script, including what format it’s in)</span></span>
-<span id="cb1-5"><a href="index.html#cb1-5"></a><span class="co"># DATA OUTPUT (a brief description of the data output from through the script, including what format it’s in)</span></span>
-<span id="cb1-6"><a href="index.html#cb1-6"></a><span class="co"># PROJECT (what overarching project this is part of: in this case it’s Frugivoria)</span></span>
-<span id="cb1-7"><a href="index.html#cb1-7"></a><span class="co"># DATE (initiation date of script, plus any major update dates)</span></span></code></pre></div>
-<pre><code>NOTE : this guide was written without consideration for the Roxygen documentation system and if you are working on an R package, you should use that system but incorporate as much of this as possible.   See these great introductions to this system : https://kbroman.org/pkg_primer/pages/docs.html  and http://r-pkgs.had.co.nz/man.html
-
-Note also that Roxygen2 focus is on creating documentation for using functions, not the provenance of a set of scripts which is crucial for a research project. .   </code></pre>
-
 </div>
             </section>
 
@@ -203,7 +185,7 @@ Note also that Roxygen2 focus is on creating documentation for using functions, 
         </div>
       </div>
 
-<a href="configuration-and-r-scripts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="documentation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
