@@ -8,11 +8,15 @@ This is a guide for writing and using R for collaborative projects in Community 
 
 This is written in a form of [RMarkdown](https://r4ds.had.co.nz/r-markdown.html) using the package  [bookdown](https://github.com/rstudio/bookdown) to generate a website, and hosted on Github pages. 
 
-We are delighted if you want to contribute and don't want you to worry about formatting or bookdown tricks, so consider contributing even if you've never used the bookdown package.     We are interested in your ideas.   Simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file, or just add plain text.   If you want to add a new chapter, simply start a new Rmarkdown file, The first line of a new file must be code as a header with a single `#`  (e.g. `# Tracking Woozles`) which will be the chapter title.   IF there are any issues we are happy edit so your ideas can be incorporated.  
+We are delighted if you want to contribute and don't want you to worry about formatting or bookdown tricks, so consider contributing even if you've never used the bookdown package.  We are interested in your ideas.  
+
+If you want to quickly suggest content or just have a short idea or correction, you may submit a github issue to this project (see [Github.com:Creating an issue](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue) which requires a github account.   
+
+If you want to edit files, clone or fork this repository.   
+
+Simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file, or just add plain text.   If you want to add a new chapter, simply start a new Rmarkdown file, The first line of a new file must be code as a header with a single `#`  (e.g. `# Tracking Woozles`) which will be the chapter title.   IF there are any issues we are happy edit so your ideas can be incorporated.  
 
 If you are a lab collaborator and have a found a successful technique we want to hear about it.   Consider a new chapter describing this and pointers to examples on github.  
-
-Alternatively if you are unsure or just have a short idea or correction, you may submit a github issue to this project (see [Github.com:Creating an issue](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue) which requires a github account.   
 
 
 
@@ -20,15 +24,15 @@ Alternatively if you are unsure or just have a short idea or correction, you may
 
 You need a plain text editor that can create Markdown (we use Rstudio).  Word Processors insert unreadable characters (curly quotes).  When writing markdown ou can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
 
-To render this book, you need the **bookdown** package, which can be installed from CRAN or Github:
+To render this book, you need the **bookdown** package fo rone.  This project uses the [renv](https://rstudio.github.io/renv/articles/renv.html) package to manage installation.   After cloning/downloading to your computer, you can install all the packages you need with 
+
 
 ```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
+install.packages("renv")
+renv::init()
 ```
 
-it may also require the pandoc utility.  On mac open the terminal install the [homebrew](https://brew.sh/) utility using their instructions,  and then  `install brew install pandoc` .   Needed: windows instructions for getting started.  
+The bookdown may also require the pandoc utility.  On mac open the terminal install the [homebrew](https://brew.sh/) utility using their instructions,  and then  `install brew install pandoc`.   Needed: windows instructions for getting started.  
 
 Each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.   Additional sub-headings ( prefaced with `##` or `###` ) inside the chaper file become entries in the table of contents.   
 
