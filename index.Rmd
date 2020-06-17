@@ -1,6 +1,6 @@
 --- 
 title: "R Guide for Spatial Ecology"
-author: ["Patrick Bills", "Phoebe Zarnetske"]
+author: ["Patrick Bills, MSU SpaCElab", "Phoebe Zarnetske, MSU SpaCElab"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
