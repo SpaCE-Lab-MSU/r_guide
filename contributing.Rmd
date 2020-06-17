@@ -1,3 +1,5 @@
+NOTE THIS CONTENT WAS MOVED TO THE INDEX AND THE README FILE
+
 # Contributing to this guide
 
 We need your help.  Please contribute or insert comments and your experiences in this guide.  This is written in a form of [RMarkdown](https://r4ds.had.co.nz/r-markdown.html) called "bookdown."  (there will evenntually be a chapter here about Rmarkdown)

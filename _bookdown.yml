@@ -9,5 +9,5 @@ rmd_files: [
   
   "documentation.Rmd",
   "configuration.Rmd",
-  "contributing.Rmd",
+
 ]

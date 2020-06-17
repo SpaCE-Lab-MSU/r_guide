@@ -1,5 +1,5 @@
 --- 
-title: "MSU SpaCE Lab R Guide"
+title: "R Guide for Spatial Ecology"
 author: ["Patrick Bills", "Phoebe Zarnetske"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -8,13 +8,19 @@ github-repo: space-lab-msu/r_guide
 description: "Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab  "
 ---
 
-# Introduction {-}
+# Welcome {-}
 
-This guide is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.  
+This guide came from the [Spatial Community Ecology Lab](https://www.communityecologylab.com/) at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.  
 
-A programming "style" guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc.   Thee are usually written for professional programmers.   This guide is for R users of varying skill levels and has  approaches to broad programming issues *like how to manage configuration and data) that we use as a lab to allow for collaboration and longevity.  Nothing in here is set in stone and is open for suggestion and additions.  There will be some formatting and style requirement.   For coding style, we refer to, but don't require the use of the "tidy verse" style guide originally written at google and adopted and amended by Hadley Wickham: (https://style.tidyverse.org/)[https://style.tidyverse.org/]
+A programming "style" guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc.   Thee are usually written for professional programmers.   This guide is for our R users of varying skill levels and focuses on approaches to broad programming issues (like how to manage configuration, or data organization) that use to allow for collaboration and longevity.  Nothing in here is set in stone and is open for suggestion and additions.  There will be some formatting and style requirement.   For coding style, we refer to, but don't require the use of the "tidy verse" style guide originally written at google and adopted and amended by Hadley Wickham: (https://style.tidyverse.org/)[https://style.tidyverse.org/]
 
 Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing.   Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.  
 
 As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab.   This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g. EarthEngine), or shell scripts (e.g. Slurm scripts for batch computing on the MSU High Performance Computer).  
+
+## Contributing
+
+We need your help to document your successful techniques, and we welcome new ideas.  This document exists on a public github project https://github.com/SpaCE-Lab-MSU/r_guide.  See the `README.md` file in this project for instructions on how to add new content,  fork, make changes and create a merge request.   Minimally you may always make suggestions, corrections, or new content by submitting an ['issue' on github](https://github.com/SpaCE-Lab-MSU/r_guide/issues)  For details on what that means see [Github.com:Creating an issue](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue
+
+This is written in a form of [RMarkdown](https://r4ds.had.co.nz/r-markdown.html) called "bookdown."  (there will evenntually be a chapter here about Rmarkdown)
 
