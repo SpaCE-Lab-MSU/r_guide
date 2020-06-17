@@ -9,5 +9,6 @@ rmd_files: [
   
   "documentation.Rmd",
   "configuration.Rmd",
+  "r_markdown.Rmd"
 
 ]

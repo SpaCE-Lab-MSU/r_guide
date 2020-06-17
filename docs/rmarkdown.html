@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Guide for Spatial Ecology</title>
+  <title>Chapter 3 RMarkdown | R Guide for Spatial Ecology</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Guide for Spatial Ecology" />
+  <meta property="og:title" content="Chapter 3 RMarkdown | R Guide for Spatial Ecology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Guide for Spatial Ecology" />
+  <meta name="twitter:title" content="Chapter 3 RMarkdown | R Guide for Spatial Ecology" />
   
   <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="configuration.html"/>
 
-<link rel="next" href="documentation.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,22 +170,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Guide for Spatial Ecology</h1>
-<p class="author"><em>Patrick Bills, MSU SpaCElab</em></p>
-<p class="author"><em>Phoebe Zarnetske, MSU SpaCElab</em></p>
-<p class="date"><em>2020-06-17</em></p>
+<div id="rmarkdown" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> RMarkdown</h1>
+<p>After you’ve written source code and maybe a package, an RMarkdown document is a good way to demonstrate how to use your code and results. R Markdown is an authoring framework for R code and output. R Markdown is part word-processor, part R output. It enables you to generate nice reports with R code, figures, tables, and text. It’s handy because it produces neat summaries of your work in HTML or PDF or other formats (Word docs).</p>
+<p>R Markdown is especially helpful with collaborative research and coursework, and is often used in supplemental materials with publications. If you haven’t already watched the R Markdown tutorial, you may want to refer to it when putting together an analysis write-up: <a href="http://rmarkdown.rstudio.com/lesson-1.html" class="uri">http://rmarkdown.rstudio.com/lesson-1.html</a> (including “How it Works”, “Code Chunks”, and “Markdown Basics”). I recommend using “KnitR” when you want to publish (i.e., click on “knit to HTML”, “knit to PDF”, etc. in the pull-down menu in RStudio).</p>
+<p>When you click the Knit button in R Studio (looks like a knitting needle with ball of yarn) a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.</p>
+<ul>
+<li>Book on RMarkdown by the author: <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
+<li>Tutorial from Rstudio : <a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a></li>
+<li>Hadley Wickahm’s chapter on Rmarkdown: <a href="https://r4ds.had.co.nz/r-markdown.html" class="uri">https://r4ds.had.co.nz/r-markdown.html</a></li>
+<li>introduction from U of M <a href="https://m-clark.github.io/Introduction-to-Rmarkdown/" class="uri">https://m-clark.github.io/Introduction-to-Rmarkdown/</a>,</li>
+<li>I like this intro because the author was a grad student: <a href="https://rpubs.com/brandonkopp/RMarkdown" class="uri">https://rpubs.com/brandonkopp/RMarkdown</a></li>
+<li>Communicating with R Markdown: A full-day workshop for users who want to get more out of R Markdown (and friends): <a href="https://ysc-rmarkdown.netlify.app/" class="uri">https://ysc-rmarkdown.netlify.app/</a></li>
+</ul>
+<div id="examples-of-rmarkdown" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Examples of RMarkdown:</h2>
+<p>All of the tutorials form <a href="https://ourcodingclub.github.io/tutorials.html" class="uri">https://ourcodingclub.github.io/tutorials.html</a> are written in RMarkdown. You can view these tutorials in the github repository for their website, e.g <a href="https://github.com/ourcodingclub/ourcodingclub.github.io/tree/master/_tutorials" class="uri">https://github.com/ourcodingclub/ourcodingclub.github.io/tree/master/_tutorials</a> If you open any one of these .md files in github and click ‘raw’ you see the markdown code.</p>
+<p>Note that Rstudio is not required to use RMarkdown but it’s the entry point for most. Rstudio has extended Rmarkdown to make it interactive for reporting (e.g. with Shiny, another topic entirely)</p>
 </div>
-<div id="welcome" class="section level1 unnumbered" number="">
-<h1>Welcome</h1>
-<p>This guide came from the <a href="https://www.communityecologylab.com/">Spatial Community Ecology Lab</a> at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.</p>
-<p>A programming “style” guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc. Thee are usually written for professional programmers. This guide is for our R users of varying skill levels and focuses on approaches to broad programming issues (like how to manage configuration, or data organization) that use to allow for collaboration and longevity. Nothing in here is set in stone and is open for suggestion and additions. There will be some formatting and style requirement. For coding style, we refer to, but don’t require the use of the “tidy verse” style guide originally written at google and adopted and amended by Hadley Wickham: (<a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a>)[<a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a>]</p>
-<p>Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing. Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.</p>
-<p>As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab. This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g. EarthEngine), or shell scripts (e.g. Slurm scripts for batch computing on the MSU High Performance Computer).</p>
-<div id="contributing" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> Contributing</h2>
-<p>We need your help to document your successful techniques, and we welcome new ideas. This document exists on a public github project <a href="https://github.com/SpaCE-Lab-MSU/r_guide" class="uri">https://github.com/SpaCE-Lab-MSU/r_guide</a>. See the <code>README.md</code> file in this project for instructions on how to add new content, fork, make changes and create a merge request. Minimally you may always make suggestions, corrections, or new content by submitting an <a href="https://github.com/SpaCE-Lab-MSU/r_guide/issues">‘issue’ on github</a> For details on what that means see [Github.com:Creating an issue](<a href="https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue" class="uri">https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue</a></p>
-<p>This is written in a form of <a href="https://r4ds.had.co.nz/r-markdown.html">RMarkdown</a> called “bookdown.” (there will evenntually be a chapter here about Rmarkdown)</p>
+<div id="r-notebooks" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> R Notebooks</h2>
+<p>This is an Rstudio feature that builds up on RMarkdown and is a way to interactively create an RMarkdown file much like the Rconsole. It’s patterned after Jupyter Notebooks used for Python. It’s not required to write RMarkdown.</p>
 
 </div>
 </div>
@@ -194,8 +199,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="configuration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="documentation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

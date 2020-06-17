@@ -1,0 +1,53 @@
+---
+title: "Package Management"
+author: "Pat Bills"
+date: "6/17/2020"
+output: html_document
+---
+
+# Package Management
+
+
+The  use renv to manage packages for your scripts.   This lets you have different sets of packages for each project, is easy and automatic to use, and creates a file that others can use to know which packages they need to install.  
+
+Most scripts require you to install specific packages.   Over time these packages are updated, and changes to one or more packages can cause conflicts or incompatibility errors.  In addition, you may be working or collaborating on multiple R projects with that use different and conflicting libraries.    Using 'install.packages()' by default will isntall in your home directory for all projects.   Finally, projects shold have a way to efficiently share which packages are needed for it to run.       
+
+Package management is the way to deal with these.  renv is a new library (Spring 2020 ) and the first to handle it successfully  
+
+When starting a new project (or sprucing up and old one) follow the directions on https://rstudio.github.io/renv/
+
+## Getting Started
+
+See the renv doc but in short, in your project main folder
+
+```{r eval=FALSE}
+install.packages('renv') # if you haven't yet
+renv::init()
+```
+
+In the `.gitignore` file add the renv folder (this is where packages are installed for your platform
+
+```
+renv/**
+```
+
+In your README.md, add the code above to let collaborators know how to get the packages they need. 
+
+Push the changes into github including the `renv.lock` file which lists the packages you just installed
+
+## updating a project
+
+When you install new packages, because of the .Rprofile settings they will automatically be installed in `renv/` and the `renv.lock` file will be updated ( I think - please confirm).  
+
+
+## Using a project that uses `renv`
+
+After cloning a project, the process is the same as for new projects: 
+
+```{r eval=FALSE}
+install.packages('renv') # if you haven't yet
+renv::init()
+```
+
+Need to write: how to update renv if a collaborator installs new packages and updates the `renv.lock` file ... `renv::init()` again?
+
