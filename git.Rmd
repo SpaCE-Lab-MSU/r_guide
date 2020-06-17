@@ -1,0 +1,8 @@
+# Using R with Git
+
+*and some git suggestions* 
+
+This is a book about R but the theme is collaboration for that we depend on git and github.   This chapter will hold links and suggestions for commits, branches, merging ,etc
+
+See seciton 9.3 in [Chapter 9 Efficient collaboration](https://csgillespie.github.io/efficientR/collaboration.html) in The book [Efficient R programming](https://csgillespie.github.io/efficientR/) to start
+
