@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide</title>
+  <title>Chapter 3 Contributing to this guide | MSU SpaCE Lab R Guide</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide" />
+  <meta property="og:title" content="Chapter 3 Contributing to this guide | MSU SpaCE Lab R Guide" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 this would have to go at the top of each function that needed this configuration | MSU SpaCE Lab R Guide" />
+  <meta name="twitter:title" content="Chapter 3 Contributing to this guide | MSU SpaCE Lab R Guide" />
   
   <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="configuration-and-r-scripts.html"/>
-<link rel="next" href="contributing-to-this-guide.html"/>
+<link rel="prev" href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -167,51 +167,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> this would have to go at the top of each function that needed this configuration</h1>
-<p>You’d have to set these at the top of each script.</p>
-<p>Alternatively, I would try to avoid having a handful of scripts, to which you’d have to copy/paste those same statements at the top. The software engineering principle here is “Don’t Repeat Yourself” or… keep your code DRY. To do so, wrap code into functions as much as possible, and pass those as configuration to the function. That advantage is that is make those functions testable and portable</p>
-<p>The main script to run then would</p>
-<p>Workflow to use lab code that needs configuration in Renviron:</p>
-<ol style="list-style-type: decimal">
-<li>clone the repository</li>
-<li>in the README.md look to see which configuration settings are needed
-and/or looked for a file Renviron_example.txt</li>
-<li>create a new .Renviron file in the top level folder of the repository with the necessary configuration</li>
-<li>open a new Rstudio project in that folder (or start R) which would then read the .Renviron settings</li>
-<li>run the code</li>
-<li>repeat for different environment (e.g. laptop vs HPCC)</li>
-</ol>
-<p>workflow when using configuration in your code with Renviron:</p>
-<ol style="list-style-type: decimal">
-<li>put configuration in .Renviron and add Sys.getenv() to set those vars in R</li>
-<li>test</li>
-<li>add those configuration vars in Renivron_example.txt with comments to describe possible values</li>
-<li>add a list of the configuration need in the README.md</li>
-<li>make sure .gitignore has .Renviron listed in it to keep it out of github</li>
-<li>optional but polite thing to do for other users of your code: wrap the Sys.getenv() with an if statement or exception handling to
-<ol style="list-style-type: decimal">
-<li>check that the var is set in .Renviron</li>
-<li>set a reasonable default if it’s not</li>
-<li>test that the value the user supplied (or default) actually work</li>
-<li>throw exception if they don’t and print message which value needs to be set and where to look for guidance (see README)</li>
-</ol></li>
-</ol>
-<div id="file-paths" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> File Paths</h2>
-<p>File paths for data files are a special case when working with configuration and there are different ways to handle them. One is to use the same directory in all of you</p>
-</div>
-<div id="complimentary-packages" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Complimentary Packages</h2>
-<p>These other packages/features work to make configuration easier, or could be part of a configuration strategy.</p>
-<p>startup: <a href="https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html" class="uri">https://cran.r-project.org/web/packages/startup/vignettes/startup-intro.html</a>
-Package from Henrik Bengtsson to make it easier to work with .Renviron and Rprofile. Don’t know how well is plays with config</p>
-<p>config: <a href="https://cran.r-project.org/web/packages/config/vignettes/introduction.html" class="uri">https://cran.r-project.org/web/packages/config/vignettes/introduction.html</a><br />
-Package from Rstudio to make it easy to have different Environments so you can easily switch out configuration, for example the paths/data connections you’d use for testing would be different for local and from HPCC. This is especially important when working with “production” or shared databases as you want to develop/test code on a local copy before running it on the central database or one used by an active web application</p>
-<p>dotenv: older package that borrows from python. Does not use Renviron but a “dot-env” or “.env” file just like Renviron. I think using Renviron makes more sense but mention this as it comes up when searching. A package like this is required in Python because there is nothing built-in to handle config.</p>
-<p>options: <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/base/html/options.html</a>
-part of base R and a way to set options globally so you don’t have to send them as parameter to every function. This is complimentary to Renviron: set config values in Renviron, use the options() function to set global options var in R based on those env variables.</p>
-<p>Profile or Customization : the .Rprofile should be used to customize your R experience, not set configuration for a particular set of scripts. See <a href="https://www.statmethods.net/interface/customizing.html" class="uri">https://www.statmethods.net/interface/customizing.html</a></p>
+<div id="contributing-to-this-guide" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Contributing to this guide</h1>
+<p>We need your help. Please contribute or insert comments and your experiences in this guide. This is written in a form of <a href="https://r4ds.had.co.nz/r-markdown.html">RMarkdown</a> called “bookdown.” (there will evenntually be a chapter here about Rmarkdown)</p>
+<p>Please contribute if you’ve never used bookdown. We are delighted if you want to contribute and don’t want you to worry about formatting or bookdown tricks. We are interested in your ideas. Simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file. If you want to add a new chapter, simply start a new Rmarkdown file, preface with a header (e.g. <code># Tracking Woozles</code>) which will be the chapter title. We can incorporate these changes and edit for bookdown tech as needed.</p>
+<p>This project exists on a public github project, so please fork, make changes and create a merge request.</p>
+<p>Alternatively if you are unsure or just have a short idea or correction, you may submit a github issue to this project (see <a href="https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue">Github.com:Creating an issue</a> which requires a github account.</p>
+<p>If you are a lab collaborator and have a found a successful technique we want to hear about it. Consider a new chapter describing this and pointers to examples on github.</p>
+<div id="prerequisites" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Prerequisites</h2>
+<p>You need a plain text editor that can create Markdown (we use Rstudio). Word Processors insert unreadable characters (curly quotes). When writing markdown ou can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+<p>To render this book, you need the <strong>bookdown</strong> package, which can be installed from CRAN or Github:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="contributing-to-this-guide.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb4-2"><a href="contributing-to-this-guide.html#cb4-2"></a><span class="co"># or the development version</span></span>
+<span id="cb4-3"><a href="contributing-to-this-guide.html#cb4-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<p>it also may require the pandoc utility. On mac open the terminal install the (homebrew)[<a href="https://brew.sh/" class="uri">https://brew.sh/</a>] utility using there instructions, and then <code>install brew install pandoc</code></p>
+<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
+<p>To compile this book to HTML… <strong>instructions needed here</strong> The project is set to render the HTML into the ‘docs’ folder which will make it easy to publish as an HTML website (e.g. github pages).</p>
+<p>To compile this book to to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
 
 </div>
 </div>
@@ -220,8 +193,8 @@ part of base R and a way to set options globally so you don’t have to send the
           </div>
         </div>
       </div>
-<a href="configuration-and-r-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contributing-to-this-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

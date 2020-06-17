@@ -4,32 +4,35 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Contributing | SpaCElab_R_Guide.utf8</title>
-  <meta name="description" content="" />
+  <title>Chapter 1 Contributing | MSU SpaCE Lab R Guide</title>
+  <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Contributing | SpaCElab_R_Guide.utf8" />
+  <meta property="og:title" content="Chapter 1 Contributing | MSU SpaCE Lab R Guide" />
   <meta property="og:type" content="book" />
   
   
-  
-  
+  <meta property="og:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
+  <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Contributing | SpaCElab_R_Guide.utf8" />
+  <meta name="twitter:title" content="Chapter 1 Contributing | MSU SpaCE Lab R Guide" />
   
-  
+  <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
 
+<meta name="author" content="Patrick Bills" />
+<meta name="author" content="Phoebe Zarnetske" />
 
 
+<meta name="date" content="2020-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
+<link rel="prev" href="index.html"/>
 <link rel="next" href="configuration-and-r-scripts.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,18 +54,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,25 +130,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./"> R Programming Guide, MSU Spatial and Community Ecology Lab</a></li>
+<li><a href="./">MSU SpaCElab R Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>2</b> Contributing</a><ul>
-<li class="chapter" data-level="2.1" data-path="contributing.html"><a href="contributing.html#prerequisites"><i class="fa fa-check"></i><b>2.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>1</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="contributing.html"><a href="contributing.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Configuration and R scripts</a><ul>
-<li class="chapter" data-level="3.1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>3.1</b> Quick Points on Configuration</a></li>
-<li class="chapter" data-level="3.2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#using-renviron"><i class="fa fa-check"></i><b>3.2</b> Using Renviron</a></li>
+<li class="chapter" data-level="2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html"><i class="fa fa-check"></i><b>2</b> Configuration and R scripts</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>2.1</b> Quick Points on Configuration</a></li>
+<li class="chapter" data-level="2.2" data-path="configuration-and-r-scripts.html"><a href="configuration-and-r-scripts.html#using-renviron"><i class="fa fa-check"></i><b>2.2</b> Using Renviron</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><i class="fa fa-check"></i><b>4</b> this would have to go at the top of each function that needed this configuration</a><ul>
-<li class="chapter" data-level="4.1" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#file-paths"><i class="fa fa-check"></i><b>4.1</b> File Paths</a></li>
-<li class="chapter" data-level="4.2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#complimentary-packages"><i class="fa fa-check"></i><b>4.2</b> Complimentary Packages</a></li>
+<li class="chapter" data-level="3" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><i class="fa fa-check"></i><b>3</b> this would have to go at the top of each function that needed this configuration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#file-paths"><i class="fa fa-check"></i><b>3.1</b> File Paths</a></li>
+<li class="chapter" data-level="3.2" data-path="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html"><a href="this-would-have-to-go-at-the-top-of-each-function-that-needed-this-configuration.html#complimentary-packages"><i class="fa fa-check"></i><b>3.2</b> Complimentary Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -156,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MSU SpaCE Lab R Guide</a>
           </h1>
         </div>
 
@@ -164,20 +167,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contributing" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Contributing</h1>
+<div id="contributing" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Contributing</h1>
 <p>We need your help. Please contribute or insert comments and your experiences in this guide. This is written in a form of <a href="https://r4ds.had.co.nz/r-markdown.html">RMarkdown</a> called “bookdown.” (there will evenntually be a chapter here about Rmarkdown)</p>
 <p>Please contribute if you’ve never used bookdown. We are delighted if you want to contribute and don’t want you to worry about formatting or bookdown tricks. We are interested in your ideas. Simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file. If you want to add a new chapter, simply start a new Rmarkdown file, preface with a header (e.g. <code># Tracking Woozles</code>) which will be the chapter title. We can incorporate these changes and edit for bookdown tech as needed.</p>
 <p>This project exists on a public github project, so please fork, make changes and create a merge request.</p>
 <p>Alternatively if you are unsure or just have a short idea or correction, you may submit a github issue to this project (see <a href="https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue">Github.com:Creating an issue</a> which requires a github account.</p>
 <p>If you are a lab collaborator and have a found a successful technique we want to hear about it. Consider a new chapter describing this and pointers to examples on github.</p>
-<div id="prerequisites" class="section level2">
-<h2><span class="header-section-number">2.1</span> Prerequisites</h2>
+<div id="prerequisites" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Prerequisites</h2>
 <p>You need a plain text editor that can create Markdown (we use Rstudio). Word Processors insert unreadable characters (curly quotes). When writing markdown ou can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <p>To render this book, you need the <strong>bookdown</strong> package, which can be installed from CRAN or Github:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="contributing.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
 <span id="cb1-2"><a href="contributing.html#cb1-2"></a><span class="co"># or the development version</span></span>
 <span id="cb1-3"><a href="contributing.html#cb1-3"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<p>it also may require the pandoc utility. On mac open the terminal install the (homebrew)[<a href="https://brew.sh/" class="uri">https://brew.sh/</a>] utility using there instructions, and then <code>install brew install pandoc</code></p>
 <p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
 <p>To compile this book to HTML… <strong>instructions needed here</strong> The project is set to render the HTML into the ‘docs’ folder which will make it easy to publish as an HTML website (e.g. github pages).</p>
 <p>To compile this book to to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
@@ -205,7 +209,7 @@ Note also that Roxygen2 focus is on creating documentation for using functions, 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="configuration-and-r-scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -248,7 +252,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["SpaCElab_R_Guide.pdf", "SpaCElab_R_Guide.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }

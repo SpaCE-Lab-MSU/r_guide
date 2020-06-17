@@ -1,15 +1,20 @@
 --- 
-title: "R Guide for the MSU SpaCE Lab"
-author: "Patrick Bills, Phoebe Zarnetske, ..."
+title: "MSU SpaCE Lab R Guide"
+author: ["Patrick Bills", "Phoebe Zarnetske"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
+github-repo: space-lab-msu/r_guide
 description: "Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab  "
 ---
 
-# index intro
+# Introduction {-}
 
-this is the index.Rmd file.   
+This guide is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.  
+
+A programming "style" guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc.   Thee are usually written for professional programmers.   This guide is for R users of varying skill levels and has  approaches to broad programming issues *like how to manage configuration and data) that we use as a lab to allow for collaboration and longevity.  Nothing in here is set in stone and is open for suggestion and additions.  There will be some formatting and style requirement.   For coding style, we refer to, but don't require the use of the "tidy verse" style guide originally written at google and adopted and amended by Hadley Wickham: (https://style.tidyverse.org/)[https://style.tidyverse.org/]
+
+Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing.   Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.  
+
+As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab.   This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g. EarthEngine), or shell scripts (e.g. Slurm scripts for batch computing on the MSU High Performance Computer).  
+

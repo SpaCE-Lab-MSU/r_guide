@@ -5,10 +5,9 @@ language:
     chapter_name: "Chapter "
 output_dir: "docs"
 rmd_files: [
-  "intro.Rmd",
-  "contributing.Rmd",
+  "index.Rmd",
+  
   "documentation.Rmd",
   "configuration.Rmd",
-  "references.Rmd",
- 
+  "contributing.Rmd",
 ]
