@@ -5,4 +5,4 @@ bookdown::gitbook:
       before: |
         <li><a href="./">MSU SpaCElab R Guide</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://www.communityecologylab.com/" target="blank"><strong>MSU SpaCE Lab</strong></a></li>
