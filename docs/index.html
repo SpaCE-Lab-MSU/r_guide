@@ -25,7 +25,7 @@
 <meta name="author" content="Phoebe Zarnetske, MSU SpaCElab" />
 
 
-<meta name="date" content="2020-06-17" />
+<meta name="date" content="2020-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,9 +157,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="package-management.html"><a href="package-management.html#updating-a-project"><i class="fa fa-check"></i><b>4.2</b> updating a project</a></li>
 <li class="chapter" data-level="4.3" data-path="package-management.html"><a href="package-management.html#using-a-project-that-uses-renv"><i class="fa fa-check"></i><b>4.3</b> Using a project that uses <code>renv</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="using-r-with-git.html"><a href="using-r-with-git.html"><i class="fa fa-check"></i><b>5</b> Using R with Git</a></li>
+<li class="chapter" data-level="5" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>5</b> Writing Scripts</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="writing-scripts.html"><a href="writing-scripts.html#naming-things"><i class="fa fa-check"></i><b>5.1</b> Naming Things</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="writing-scripts.html"><a href="writing-scripts.html#script-file-names"><i class="fa fa-check"></i><b>5.1.1</b> Script File Names</a></li>
+<li class="chapter" data-level="5.1.2" data-path="writing-scripts.html"><a href="writing-scripts.html#variable-and-function-names"><i class="fa fa-check"></i><b>5.1.2</b> <strong>Variable and Function Names</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="writing-scripts.html"><a href="writing-scripts.html#writing-code"><i class="fa fa-check"></i><b>5.2</b> writing code</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="writing-scripts.html"><a href="writing-scripts.html#editor"><i class="fa fa-check"></i><b>5.2.1</b> <strong>Editor</strong></a></li>
+<li class="chapter" data-level="5.2.2" data-path="writing-scripts.html"><a href="writing-scripts.html#line-endings"><i class="fa fa-check"></i><b>5.2.2</b> <strong>Line Endings</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="using-r-with-git.html"><a href="using-r-with-git.html"><i class="fa fa-check"></i><b>6</b> Using R with Git</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://www.communityecologylab.com/" target="blank"><strong>MSU SpaCE Lab</strong></a></li>
 </ul>
 
       </nav>
@@ -181,11 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">R Guide for Spatial Ecology</h1>
 <p class="author"><em>Patrick Bills, MSU SpaCElab</em></p>
 <p class="author"><em>Phoebe Zarnetske, MSU SpaCElab</em></p>
-<p class="date"><em>2020-06-17</em></p>
+<p class="date"><em>2020-06-18</em></p>
 </div>
 <div id="welcome" class="section level1 unnumbered" number="">
 <h1>Welcome</h1>
-<p>This guide came from the <a href="https://www.communityecologylab.com/">Spatial Community Ecology Lab</a> at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.</p>
+<p>This guide came from the <a href="https://www.communityecologylab.com/">Spatial &amp; Community Ecology Lab</a> at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.</p>
 <p>A programming “style” guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc. Thee are usually written for professional programmers. This guide is for our R users of varying skill levels and focuses on approaches to broad programming issues (like how to manage configuration, or data organization) that use to allow for collaboration and longevity. Nothing in here is set in stone and is open for suggestion and additions. There will be some formatting and style requirement. For coding style, we refer to, but don’t require the use of the “tidy verse” style guide originally written at google and adopted and amended by Hadley Wickham: (<a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a>)[<a href="https://style.tidyverse.org/" class="uri">https://style.tidyverse.org/</a>]</p>
 <p>Certainly when learning or in the middle of developing an idea for program, focusing on style can bog you down, much like writing. Refer to this guide when polishing your code or preparing to share your ideas, and especially when packaging for publication.</p>
 <p>As painful as re-formatting your code and project can be, we find that consistency in approach to programming add efficiency to the programming efforts in the lab. This guide is focused on R but some of the ideas should translate to other scripting languages you may use for the lab, such as python, Javsccript (e.g. EarthEngine), or shell scripts (e.g. Slurm scripts for batch computing on the MSU High Performance Computer).</p>

@@ -1,0 +1,45 @@
+# Writing Scripts
+
+*DRAFT : this is incomplete*
+
+*Note: you should read and incorporate ideas in the [tidyverse style guide](https://style.tidyverse.org)
+
+## Naming Things
+
+### Script File Names
+
+Script names not have spaces or capital letters.   We will use script names in other scripts and files or in commands and spaces can cause trouble.   A file names should be mostly if not all lowercase, and not include spaces and end with standard extensions. File folders should also have no spaces and be lower case.   Most operating systems allow spaces in file names, but when using these in other places they must always be quoted or the spaces 'escaped'
+
+R uses standard file extensions: 
+
+
+  * .R  : R script
+  * .py : python script
+  * .txt : plain text file (could be data, or text, not a script)
+  * .csv : comma seperated data, there are a few standards for how these are formatted
+  * .tsv : tab separated data
+  * .Rdata : Data saved from your R session.   
+  * .sh   : Linux shell script, used on the HPC
+  * .sb   : HPC Slurm batch  submission script (short for 'sbatch' ,the command to submit a batch job)
+
+
+### **Variable and Function Names**
+
+see the tidyverse style guide above. 
+
+
+## writing code
+
+### **Editor**
+
+Use programming editors to write your scripts only.  Don't write scripts in MS Word, Windows Notepad, Google docs or Mac Textedit. By default these programs will convert basic quote character " to "curly quotes"   which will crash your program.  ( e.g. “ ” 
+) 
+
+The Rstudio or R GUI editors are perfect for this
+
+
+### **Line Endings**
+
+Line endings should be standard Linux/Unixline endings, which is a single line feed.   Line Endings are only an issue because Windows uses different line endings than the rest of the world, and scripts with Windows line endings will not run on linux (e.g. the MSU HPC or cloud systems).    Rstudio will silently convert these to linux line endings for you.    Only Windows users may have to worry about line endings.   We mention them because one consequence of this translation of Line endings in  script is when using git.  The power of git is to see what has changed in code and who changed it.   Changing line endings will make it appear that the entire script was changed and we'd lose the ability to see the change. 
+
+

@@ -11,6 +11,7 @@ rmd_files: [
   "configuration.Rmd",
   "r_markdown.Rmd",
   "package_management.Rmd",
+  "script_organization.Rmd",
   "git.Rmd",
 
 ]
