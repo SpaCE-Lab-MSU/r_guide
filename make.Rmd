@@ -1,0 +1,16 @@
+# Data Generation Workflow with "Make"
+
+*"What gets done stays done"*
+
+## Motivation
+
+We strive to organize our code that cleans data, generated new data, or generates figures into sequential steps. As we work we may alter any one of the steps along the way and want to re-run the sequence, but some of the steps may take non-significant time (5min < t < 60min).  The challenge is to only run those steps affected by our change, without having to re-run those that are not.   In addition some steps may be non sequeuntial, and can be run seperately or as an aside.  
+
+This is not uncommon for any software 'build' process.  If we consider the production of our cleaned (L1) and derived (L2) data (ref EDI framework) analagous to a software "build," there are many tools to help with that.  For example, the GNU Make utility written in 1976 in Bell Labs.   
+
+## Usage
+
+Using Make: [A minimal tutorial on make from kbroman](https://kbroman.org/minimal_make/)
+
+Using Drake (Make for R):
+https://github.com/ropensci/drake

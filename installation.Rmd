@@ -1,11 +1,11 @@
 
-# How to Install R on Windows, Mac OS X, and Ubuntu
+# Installing R and RStudio
 
 ***"For absolute beginners"***
 
 *We've looked for a straightfoward install guide  - there are many on the web - but couldn't find one that we liked and that was up to date.  Feedback is welcome! *  
 
-### What is R?
+## What is R?
 
 "R is a free software environment for statistical computing and graphics."  R is both a scripting language for statistics, and an application that runs code in that language and displays the results (text, tables, plots, and more).    R if often associated with statistics but is incredibly powerful for so much more.  
 
@@ -22,7 +22,7 @@ The University of Michigan hosts a CRAN mirror that we will use.
 
 For all operating systems, go to https://repo.miserver.it.umich.edu/cran/
 
-### Installing R
+## Installing R
 
 #### R on Windows 10
 Installing R : Visit the CRAN  mirror page, and click the 
@@ -38,7 +38,7 @@ Visit the CRAN  mirror page, and click the
 "Download R for mac" link, which downloads a ".pkg" file.  Open that file and follow the default instructions.   
 
 
-### Installing RStudio
+## Installing RStudio
 
 Rstudio has several versions, and you want "Rstudio Desktop" "open source edition"
 
@@ -57,7 +57,7 @@ Once downloaded, double click the dmg file in your downloads, locate the DMG and
 
 You don't need any other downloads, not the Zip file, or the Source code, to run and install Rstudio Desktop.  
 
-### R Packages, briefly
+## About R Packages, briefly
 
 R by itself if powerful, but the real power comes from additional libaries and packages.  Packages give you more functions to use in your programs, more types of graphs, or mapping, etc.  CRAN currently hosts over 16,000 packages.  There are a couple of ways to install packages. 
 
@@ -73,4 +73,9 @@ The second is the graphical interface built into RStudio from which you can sear
 
 There are other places to get packages than only CRAN.  Datacamp has a pretty good description of packages here : https://www.datacamp.com/community/tutorials/r-packages-guide
 
+## Next
+
+There are hundreds of tutorials about R online, but this is a  Great collection of tutorials put together by graduate students.  There is a tutorial on spatial analysis with R, with Puffins.  
+
+https://ourcodingclub.github.io/tutorials.html
 
