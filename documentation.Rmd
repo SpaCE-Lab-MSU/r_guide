@@ -5,15 +5,32 @@ There are many ways to get a script to do it's work, but a script is useless if 
 
 The following in R code all start with Comments (#) 
     All scripts need a good description in the beginning - what does this script do? What kind of data does it read in and what does it output?
+    Each .R script and Markdown script should contain the following header. Note that the words in CAPS should appear when knit to PDF. Setting up 2 columns is helpful to visually separate terms with descriptors as below. 
 
 ```{r  eval=FALSE}        
-# TITLE: name of the script
-# AUTHORS (list anyone contributing to the file)
-# COLLABORATORS (other people involved in the wider project but not necessarily on the script)
-# DATA INPUT (a brief description of the data read in through the script, including what format it’s in)
-# DATA OUTPUT (a brief description of the data output from through the script, including what format it’s in)
-# PROJECT (what overarching project this is part of: in this case it’s Frugivoria)
-# DATE (initiation date of script, plus any major update dates)
+# TITLE:            name of the script
+# PROJECT:          name of project that this script is part of
+# AUTHORS:          list anyone contributing to the file
+# COLLABORATORS:    other people involved in the wider project but not necessarily on the script
+# DATA INPUT:       a brief description of the data read in through the script, including what format it’s in
+# DATA OUTPUT:      a brief description of the data output from through the script, including what format it’s in
+# DATE:             initiation date of script, plus any major update dates
+# OVERVIEW:         Brief description of what this script does
+# REQUIRES:         any scripts or code sources that are required
+# NOTES:            any additional information that is necessary / helpful to describe what needs to be done next
+
+# *Example:*
+# TITLE:            NEON Small Mammal Diversity Maps, Local to Regional
+# PROJECT:          "NEON's continental-scale biodiversity"
+# AUTHORS:          Quentin Read, Phoebe Zarnetske, Jon Knott
+# COLLABORATORS:    Sydne Record (Bryn Mawr), Ben Baiser (UFL), Angela Strecker (WWU), Kate Thibault (NEON)
+# DATA INPUT:       NEON organismal diversity data: all species, all years, all sites: neon_org_data_all.csv 
+#                   Range map data (IUCN) (iucn_mammal.shp)
+# DATA OUTPUT:      neon_mammal_richness_map.pdf, neon_mammal_richness.shp, multi_panel_mammal_plot.pdf 
+# DATE:             initiated: June 18, 2018; last run: 23 July 2020
+# OVERVIEW:         This script reads in NEON's small mammal diversity data, maps 2019 NEON diversity at NEON sites, maps background diversity across the US, and plots local (site or plot) vs. regional species pool relationships.
+# REQUIRES:           Small mammals: (1) L0_mammal_diversity_cleaning.R (2) L1_mammal_diversity.R
+# NOTES:              Lots of functions in here to pull out and reference because they will apply to each taxa. Add functionality to plot different years, and cumulative diversity across all years: requiring edit to L1_mammal_diversity.R
  
 ```   
     NOTE : this guide was written without consideration for the Roxygen documentation system and if you are working on an R package, you should use that system but incorporate as much of this as possible.   See these great introductions to this system : https://kbroman.org/pkg_primer/pages/docs.html  and http://r-pkgs.had.co.nz/man.html
