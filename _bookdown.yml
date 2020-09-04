@@ -6,12 +6,13 @@ language:
 output_dir: "docs"
 rmd_files: [
   "index.Rmd",
-  
+  "installation.Rmd",
   "documentation.Rmd",
   "configuration.Rmd",
   "r_markdown.Rmd",
   "package_management.Rmd",
   "script_organization.Rmd",
   "git.Rmd",
+  "make.Rmd",
 
 ]

@@ -24,12 +24,12 @@ install.packages("bookdown")
 # devtools::install_github("rstudio/bookdown")
 ```
 
-it also may require the pandoc utility.  On mac open the terminal install the (homebrew)[https://brew.sh/] utility using there instructions,  and then  `install brew install pandoc`
+it also may require the pandoc utility.  On mac open the terminal install the (homebrew)[https://brew.sh/] utility using there instructions,  and then  `brew install pandoc`
 
 
 Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
 
-To compile this book to HTML... **instructions needed here**   The project is set to render the HTML into the 'docs' folder which will make it easy to publish as an HTML website (e.g. github pages). 
+To compile this book to HTML for github the command is ` bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs")`   Alternatively you may test the book using  `bookdown::serve_book(output_dir = 'docs')` which renders, then starts a webserver to preview it.  The project is set to render the HTML into the 'docs' folder which will make it easy to publish as an HTML website (e.g. github pages), but the "output_dir" param makes it explicit. 
 
 To compile this book to to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
 

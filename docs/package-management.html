@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Package Management | R Guide for Spatial Ecology</title>
+  <title>Chapter 5 Package Management | R Guide for Spatial Ecology</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Package Management | R Guide for Spatial Ecology" />
+  <meta property="og:title" content="Chapter 5 Package Management | R Guide for Spatial Ecology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Package Management | R Guide for Spatial Ecology" />
+  <meta name="twitter:title" content="Chapter 5 Package Management | R Guide for Spatial Ecology" />
   
   <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Phoebe Zarnetske, MSU SpaCElab" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-09-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
   
 <link rel="prev" href="rmarkdown.html"/>
 <link rel="next" href="writing-scripts.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,41 +138,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i><b>0.1</b> Contributing</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>1</b> Documentation</a></li>
-<li class="chapter" data-level="2" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>2</b> Configuration</a>
+<li class="chapter" data-level="1" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>2.1</b> Quick Points on Configuration</a></li>
-<li class="chapter" data-level="2.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>2.2</b> Using Renviron</a></li>
-<li class="chapter" data-level="2.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>2.3</b> File Paths STandard Configuration</a></li>
-<li class="chapter" data-level="2.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>2.4</b> R Packages for Configuration</a></li>
+<li class="chapter" data-level="1.1" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#installing-r"><i class="fa fa-check"></i><b>1.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.3" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#installing-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#about-r-packages-briefly"><i class="fa fa-check"></i><b>1.4</b> About R Packages, briefly</a></li>
+<li class="chapter" data-level="1.5" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#next"><i class="fa fa-check"></i><b>1.5</b> Next</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>3</b> RMarkdown</a>
+<li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
+<li class="chapter" data-level="3" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>3</b> Configuration</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="rmarkdown.html"><a href="rmarkdown.html#examples-of-rmarkdown"><i class="fa fa-check"></i><b>3.1</b> Examples of RMarkdown:</a></li>
-<li class="chapter" data-level="3.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-notebooks"><i class="fa fa-check"></i><b>3.2</b> R Notebooks</a></li>
+<li class="chapter" data-level="3.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>3.1</b> Quick Points on Configuration</a></li>
+<li class="chapter" data-level="3.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>3.2</b> Using Renviron</a></li>
+<li class="chapter" data-level="3.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>3.3</b> File Paths STandard Configuration</a></li>
+<li class="chapter" data-level="3.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>3.4</b> R Packages for Configuration</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="package-management.html"><a href="package-management.html"><i class="fa fa-check"></i><b>4</b> Package Management</a>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> RMarkdown</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="package-management.html"><a href="package-management.html#getting-started"><i class="fa fa-check"></i><b>4.1</b> Getting Started</a></li>
-<li class="chapter" data-level="4.2" data-path="package-management.html"><a href="package-management.html#updating-a-project"><i class="fa fa-check"></i><b>4.2</b> updating a project</a></li>
-<li class="chapter" data-level="4.3" data-path="package-management.html"><a href="package-management.html#using-a-project-that-uses-renv"><i class="fa fa-check"></i><b>4.3</b> Using a project that uses <code>renv</code></a></li>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#examples-of-rmarkdown"><i class="fa fa-check"></i><b>4.1</b> Examples of RMarkdown:</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-notebooks"><i class="fa fa-check"></i><b>4.2</b> R Notebooks</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-knittr-and-file-paths"><i class="fa fa-check"></i><b>4.3</b> RMarkdown, Knittr and File paths</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>5</b> Writing Scripts</a>
+<li class="chapter" data-level="5" data-path="package-management.html"><a href="package-management.html"><i class="fa fa-check"></i><b>5</b> Package Management</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="writing-scripts.html"><a href="writing-scripts.html#naming-things"><i class="fa fa-check"></i><b>5.1</b> Naming Things</a>
+<li class="chapter" data-level="5.1" data-path="package-management.html"><a href="package-management.html#getting-started"><i class="fa fa-check"></i><b>5.1</b> Getting Started</a></li>
+<li class="chapter" data-level="5.2" data-path="package-management.html"><a href="package-management.html#updating-a-project"><i class="fa fa-check"></i><b>5.2</b> updating a project</a></li>
+<li class="chapter" data-level="5.3" data-path="package-management.html"><a href="package-management.html#using-a-project-that-uses-renv"><i class="fa fa-check"></i><b>5.3</b> Using a project that uses <code>renv</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>6</b> Writing Scripts</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="writing-scripts.html"><a href="writing-scripts.html#script-file-names"><i class="fa fa-check"></i><b>5.1.1</b> Script File Names</a></li>
-<li class="chapter" data-level="5.1.2" data-path="writing-scripts.html"><a href="writing-scripts.html#variable-and-function-names"><i class="fa fa-check"></i><b>5.1.2</b> <strong>Variable and Function Names</strong></a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="writing-scripts.html"><a href="writing-scripts.html#writing-code"><i class="fa fa-check"></i><b>5.2</b> writing code</a>
+<li class="chapter" data-level="6.1" data-path="writing-scripts.html"><a href="writing-scripts.html#naming-things"><i class="fa fa-check"></i><b>6.1</b> Naming Things</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="writing-scripts.html"><a href="writing-scripts.html#editor"><i class="fa fa-check"></i><b>5.2.1</b> <strong>Editor</strong></a></li>
-<li class="chapter" data-level="5.2.2" data-path="writing-scripts.html"><a href="writing-scripts.html#line-endings"><i class="fa fa-check"></i><b>5.2.2</b> <strong>Line Endings</strong></a></li>
+<li class="chapter" data-level="6.1.1" data-path="writing-scripts.html"><a href="writing-scripts.html#script-file-names"><i class="fa fa-check"></i><b>6.1.1</b> Script File Names</a></li>
+<li class="chapter" data-level="6.1.2" data-path="writing-scripts.html"><a href="writing-scripts.html#variable-and-function-names"><i class="fa fa-check"></i><b>6.1.2</b> <strong>Variable and Function Names</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="writing-scripts.html"><a href="writing-scripts.html#writing-code"><i class="fa fa-check"></i><b>6.2</b> writing code</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="writing-scripts.html"><a href="writing-scripts.html#editor"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Editor</strong></a></li>
+<li class="chapter" data-level="6.2.2" data-path="writing-scripts.html"><a href="writing-scripts.html#line-endings"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Line Endings</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="using-r-with-git.html"><a href="using-r-with-git.html"><i class="fa fa-check"></i><b>6</b> Using R with Git</a></li>
+<li class="chapter" data-level="7" data-path="using-r-with-git.html"><a href="using-r-with-git.html"><i class="fa fa-check"></i><b>7</b> Using R with Git</a></li>
+<li class="chapter" data-level="8" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html"><i class="fa fa-check"></i><b>8</b> Data Generation Workflow with “Make”</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html#motivation"><i class="fa fa-check"></i><b>8.1</b> Motivation</a></li>
+<li class="chapter" data-level="8.2" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html#usage"><i class="fa fa-check"></i><b>8.2</b> Usage</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://www.communityecologylab.com/" target="blank"><strong>MSU SpaCE Lab</strong></a></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></li>
 </ul>
 
       </nav>
@@ -190,31 +205,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="package-management" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Package Management</h1>
+<div id="package-management" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Package Management</h1>
 <p>The use renv to manage packages for your scripts. This lets you have different sets of packages for each project, is easy and automatic to use, and creates a file that others can use to know which packages they need to install.</p>
 <p>Most scripts require you to install specific packages. Over time these packages are updated, and changes to one or more packages can cause conflicts or incompatibility errors. In addition, you may be working or collaborating on multiple R projects with that use different and conflicting libraries. Using ‘install.packages()’ by default will isntall in your home directory for all projects. Finally, projects shold have a way to efficiently share which packages are needed for it to run.</p>
 <p>Package management is the way to deal with these. renv is a new library (Spring 2020 ) and the first to handle it successfully</p>
 <p>When starting a new project (or sprucing up and old one) follow the directions on <a href="https://rstudio.github.io/renv/" class="uri">https://rstudio.github.io/renv/</a></p>
-<div id="getting-started" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Getting Started</h2>
+<div id="getting-started" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Getting Started</h2>
 <p>See the renv doc but in short, in your project main folder</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="package-management.html#cb7-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;renv&#39;</span>) <span class="co"># if you haven&#39;t yet</span></span>
-<span id="cb7-2"><a href="package-management.html#cb7-2"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="package-management.html#cb9-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;renv&#39;</span>) <span class="co"># if you haven&#39;t yet</span></span>
+<span id="cb9-2"><a href="package-management.html#cb9-2" aria-hidden="true"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
 <p>In the <code>.gitignore</code> file add the renv folder (this is where packages are installed for your platform</p>
 <pre><code>renv/**</code></pre>
 <p>In your README.md, add the code above to let collaborators know how to get the packages they need.</p>
 <p>Push the changes into github including the <code>renv.lock</code> file which lists the packages you just installed</p>
 </div>
-<div id="updating-a-project" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> updating a project</h2>
+<div id="updating-a-project" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> updating a project</h2>
 <p>When you install new packages, because of the .Rprofile settings they will automatically be installed in <code>renv/</code> and the <code>renv.lock</code> file will be updated ( I think - please confirm).</p>
 </div>
-<div id="using-a-project-that-uses-renv" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Using a project that uses <code>renv</code></h2>
+<div id="using-a-project-that-uses-renv" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Using a project that uses <code>renv</code></h2>
 <p>After cloning a project, the process is the same as for new projects:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="package-management.html#cb9-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;renv&#39;</span>) <span class="co"># if you haven&#39;t yet</span></span>
-<span id="cb9-2"><a href="package-management.html#cb9-2"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="package-management.html#cb11-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&#39;renv&#39;</span>) <span class="co"># if you haven&#39;t yet</span></span>
+<span id="cb11-2"><a href="package-management.html#cb11-2" aria-hidden="true"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
 <p>Need to write: how to update renv if a collaborator installs new packages and updates the <code>renv.lock</code> file … <code>renv::init()</code> again?</p>
 
 </div>

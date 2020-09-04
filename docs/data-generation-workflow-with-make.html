@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Using R with Git | R Guide for Spatial Ecology</title>
+  <title>Chapter 8 Data Generation Workflow with “Make” | R Guide for Spatial Ecology</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Using R with Git | R Guide for Spatial Ecology" />
+  <meta property="og:title" content="Chapter 8 Data Generation Workflow with “Make” | R Guide for Spatial Ecology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Using R with Git | R Guide for Spatial Ecology" />
+  <meta name="twitter:title" content="Chapter 8 Data Generation Workflow with “Make” | R Guide for Spatial Ecology" />
   
   <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="writing-scripts.html"/>
-<link rel="next" href="data-generation-workflow-with-make.html"/>
+<link rel="prev" href="using-r-with-git.html"/>
+
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -205,20 +205,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-r-with-git" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Using R with Git</h1>
-<p><em>and some git suggestions</em></p>
-<p>This is a book about R but the theme is collaboration for that we depend on git and github. This chapter will hold links and suggestions for commits, branches, merging ,etc</p>
-<p>See seciton 9.3 in <a href="https://csgillespie.github.io/efficientR/collaboration.html">Chapter 9 Efficient collaboration</a> in The book <a href="https://csgillespie.github.io/efficientR/">Efficient R programming</a> to start</p>
+<div id="data-generation-workflow-with-make" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Data Generation Workflow with “Make”</h1>
+<p><em>“What gets done stays done”</em></p>
+<div id="motivation" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Motivation</h2>
+<p>We strive to organize our code that cleans data, generated new data, or generates figures into sequential steps. As we work we may alter any one of the steps along the way and want to re-run the sequence, but some of the steps may take non-significant time (5min &lt; t &lt; 60min). The challenge is to only run those steps affected by our change, without having to re-run those that are not. In addition some steps may be non sequeuntial, and can be run seperately or as an aside.</p>
+<p>This is not uncommon for any software ‘build’ process. If we consider the production of our cleaned (L1) and derived (L2) data (ref EDI framework) analagous to a software “build,” there are many tools to help with that. For example, the GNU Make utility written in 1976 in Bell Labs.</p>
+</div>
+<div id="usage" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Usage</h2>
+<p>Using Make: <a href="https://kbroman.org/minimal_make/">A minimal tutorial on make from kbroman</a></p>
+<p>Using Drake (Make for R):
+<a href="https://github.com/ropensci/drake" class="uri">https://github.com/ropensci/drake</a></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="writing-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-generation-workflow-with-make.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="using-r-with-git.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -22,3 +22,48 @@ Note that Rstudio is not required to use RMarkdown but it's the entry point for 
 ## R Notebooks
 
 This is an Rstudio feature that builds up on RMarkdown and is a way to interactively create an RMarkdown file much like the Rconsole.  It's patterned after Jupyter Notebooks used for Python.   It's not required to write RMarkdown.  
+
+Rstudio also has a feature where you can run chunks of code one by one before knitting, similar to the experience of Python notebooks. 
+
+## RMarkdown, Knittr and File paths
+
+Sometimes your markdown file or your code depends on files beiung in particular paths (e.g. data files).   When you source a script from the console, the working directory is what ever you've swet it to, or the top directory of your Rstudio project if you haven't.    This is also true when you run chunks in an Rmarkdown file as descrihbed above. 
+
+However, when you 'knit' an Rmd file, the working directory is set (setwd() ) to the directory in which the markdown file sits.  This is different, and your markdown file may not be able to find files when using knittr than when you ran ti before. 
+
+Knitr, by default, looks in the same directory as your .Rmd file to find any files you need to draw in, like data sets or script files. If you keep your data files and scripts in separate folders (and you should) you need to configure knitr.
+
+You cannot use setwd() with knitr (or several other file-related operations like file.exists() ).  
+
+One way to do this is to include uin  the 'setup'  code chunk, which is usually at the top of RMD file (Rstudio puts a chunk in when you create a new Rmd file: 
+
+```
+ ` ` ` {r setup, include=FALSE, echo=FALSE}
+ require("knitr")
+ knitr::opts_chunk$set(echo = TRUE)
+ opts_knit$set(root.dir = "~/path/to/folder/")
+ ` ` `
+```
+
+(taken from [blog post by Phil Mike Jones](https://philmikejones.me/tutorials/2015-05-20-set-root-directory-knitr/) )
+
+This approach is not reproducible as it is a folder on your computer (not anyone else's).    Also the tilde "~" is shortcut for a users's homedirctory on Linux or Mac but not Windows.    One optionsis to place the root folder of your entire Rstudio project as an 'option' or environment variable that is set,   e.g. 
+
+```
+ ` ` `{ r setup, include=FALSE, echo=FALSE}
+ require("knitr")
+ knitr::opts_chunk$set(echo = TRUE)
+ opts_knit$set(root.dir = file.path(options("projfolder")))
+ ` ` `
+```
+
+There is a package to help this : "ezknitr - Avoid the typical working directory pain when using 'knitr'"
+
+https://cran.r-project.org/web/packages/ezknitr/README.html
+
+Another option is to use an .Renviron file and set a value there. 
+
+More ideas here: https://stackoverflow.com/questions/33107908/how-to-tell-if-code-is-executed-within-a-knitr-rmarkdown-context
+
+Some are Rstudio specific which would mean we'd have to dictate Rstudio usage 
+

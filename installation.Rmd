@@ -1,0 +1,76 @@
+
+# How to Install R on Windows, Mac OS X, and Ubuntu
+
+***"For absolute beginners"***
+
+*We've looked for a straightfoward install guide  - there are many on the web - but couldn't find one that we liked and that was up to date.  Feedback is welcome! *  
+
+### What is R?
+
+"R is a free software environment for statistical computing and graphics."  R is both a scripting language for statistics, and an application that runs code in that language and displays the results (text, tables, plots, and more).    R if often associated with statistics but is incredibly powerful for so much more.  
+
+The R system along can be used to work with R, but the Rstudio application makes this
+much easier to work with, and and not required to work with R, but with many additional features.  Rstudio is a commercial application separate from R, but free for personal and academic use.  Rstudio does not come with R, you need to install R first, and then Rstudio. 
+
+Both run on all major and modern operating systems.   
+
+CRAN is the "Comprehensive R Archive Network" is a collection of instuttions who 
+share the hosting of download sites for R, since this is costly to maintain.  CRAN 
+is the central sites, and there are many "mirrors" or replicates of CRAN.  All mirrors
+have the same website and same versions any one of them can be used.  
+The University of Michigan hosts a CRAN mirror that we will use. 
+
+For all operating systems, go to https://repo.miserver.it.umich.edu/cran/
+
+### Installing R
+
+#### R on Windows 10
+Installing R : Visit the CRAN  mirror page, and click the 
+"Download R for Windows" link, which downloads a file named "R-x.y.z-win.exe" 
+or similar which is latest the version of R (in rare cases one may need an earlier
+version of R but we will use the latest). 
+
+Open this R...-win.exe file and go through the installation, Leave all default settings in the installation options.
+You may need adminstrator access to install. 
+
+#### R on Mac
+Visit the CRAN  mirror page, and click the 
+"Download R for mac" link, which downloads a ".pkg" file.  Open that file and follow the default instructions.   
+
+
+### Installing RStudio
+
+Rstudio has several versions, and you want "Rstudio Desktop" "open source edition"
+
+Here is the link https://rstudio.com/products/rstudio/download/#download 
+
+In the first column labeled "RStudio Desktop / Open Source License (Free)," click Download Rstudio Desktop
+
+On the next page, click the first button if it matches your operating system (Mac/Windows) or scroll down and select "RStudio-1.3...exe" for Windows and RStudio-1.3.....dmg for Mac, or your flavor of Linux.    
+
+Windows:  double click or open the exe file and follow the insructions
+
+Mac: Rstudio is not available on AppStore, you must download and install with this method. 
+ You must be running MacOS 10.13 or higher.    If you have an old Mac, you may consider looking for an older version of Rstudio ( https://rstudio.com/products/rstudio/older-versions/ )
+
+Once downloaded, double click the dmg file in your downloads, locate the DMG and open it.  Drag Rstudio to your application folder.   this is standard install method for software outside of the app store.  
+
+You don't need any other downloads, not the Zip file, or the Source code, to run and install Rstudio Desktop.  
+
+### R Packages, briefly
+
+R by itself if powerful, but the real power comes from additional libaries and packages.  Packages give you more functions to use in your programs, more types of graphs, or mapping, etc.  CRAN currently hosts over 16,000 packages.  There are a couple of ways to install packages. 
+
+One way, and what most tutorials suggest, is to use the R console (R commands) and type the `install.packages()` command with the name of the package.   For example, for the package named 'MASS' the command is 
+
+`install.packages('MASS')`
+
+All R packages are listed on the CRAN website https://cran.r-project.org/web/packages/available_packages_by_name.html
+
+After an R tutorial this will be more clear when and where to type this command.  
+
+The second is the graphical interface built into RStudio from which you can search and download any R package available on CRAN.  Find the "packages" tab which lists the currently installed packages.  Click the "install" button which shows you a search box. Start typing a name and if the package you want is displayed, select it and then click "install" 
+
+There are other places to get packages than only CRAN.  Datacamp has a pretty good description of packages here : https://www.datacamp.com/community/tutorials/r-packages-guide
+
+
