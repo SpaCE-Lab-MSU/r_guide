@@ -2,31 +2,28 @@
 
 **Summary**: *use the 'renv' package to help manage your project's R packages, and to 'lock' in specific versions to avoid breaking changes:  https://rstudio.github.io/renv/articles/renv.html*
 
-Nearly all R scripts require you to install additional packages.   Over time these packages are updated, and changes to one or more packages can cause conflicts or incompatibility errors.  In addition, you may be working or collaborating on multiple R projects with that use different and conflicting libraries.    Using 'install.packages()' by default will install in your home directory for all projects.   Finally, projects shold have a way to efficiently share which packages are needed for it to run.       
+Nearly all R scripts require you to install additional packages.   Over time these packages are updated, and changes to one or more packages can cause conflicts or incompatibility errors.  In addition, you may be working or collaborating on multiple R projects with that use different and conflicting libraries.    Using 'install.packages()' by default will install in your home directory for all projects.   Finally, projects shold have a way to efficiently share which packages are needed for it to run.   For those reasons several groups have create "package manager" is the way to deal with these.     
 
-For those reasons several groups have create "package manager" is the way to deal with these.  The package  'renv', is a new library (Spring 2020 ),  and the first to handle it successfully  
+## renv
 
-The vignette for this package is very clearly written and easy to follow: https://rstudio.github.io/renv/articles/renv.html but here is a summary and a caveat
+ The package ['renv'](https://cran.r-project.org/web/packages/renv/index.html), is a new library ( as of Spring 2020 ) that seems to be the first to handle package management successfully and easily.   Because it's new there may be rough edges but so far seems to be useful to many users.   Rstudio has a very clearly written and easy to follow summary ( https://rstudio.github.io/renv/articles/renv.html )  but here is a quick summary: 
 
-### Getting Started
-
-Soon after creating a main folder for your project (in Rstudio or just for R), run the following : 
+Soon after creating a main folder for your project (in Rstudio or just for R), or even cloning a someone else's repository, run the following : 
 
 ```{r eval=FALSE}
 install.packages('renv') # if you haven't yet
 renv::init()
 ```
 
-This will read through your R code to find libraries you are using, and install them for this project.  It also creates an .Rprofile file that is use to 'activate' this project to use `renv` for all future package installations.  you may use `install.packages()` commands and Renv will capture them.  It creates a list of all of your packages in `renv.lock`
-
-As you work, use `renv::snapshot()` to update the lock file. 
+This will read through the R code to find libraries you are using, and install them for this project.  It creates a new file in your project `renv.lock` that is a list of all packages and versions of the packages for this project.   It also creates (or adds to ) an .Rprofile file in your project that  'activate' this project to use `renv` whenever you start the R session.   Forfuture package installations you may use `install.packages()` commands and Renv will capture them.  As you work, use `renv::snapshot()` to update the lock file as needed.  
 
 If you download a project that is using renv, it will have a `renv.lock` file which lists the packages that project needs.   You intall them using `renv::restore()`
 
-### Additional actions
-1) code errors will break renv initialization
+## renv usage notes
 
-When looking for packages to install, if there are syntax errors in R scripts (anywhere) the `renv::init()` process will crash.   You'll have to fix those errors (or comment them out) to proceed
+1) code errors will halt renv initialization
+
+When `renv::init()` process parses the R scripts in a project, looking for packages to install, any syntax errors will crash.   You'll have to fix those errors (or comment them out) any try again. 
 
 2) gitignore 
 
@@ -36,7 +33,7 @@ In the `.gitignore` file add the renv folder (this is where packages are install
 renv/**
 ```
 
-Make sure to add .gitignore to the project git repository, and push the changes into github including the `renv.lock` file which lists the packages you just installed
+Make sure to add .gitignore to the project git repository, and push the changes into github.  Note that you _shoudl_ include `renv.lock` file in the git repository, which lists the packages you just installed. For more information see https://cran.r-project.org/web/packages/renv/vignettes/collaborating.html
 
 
 3) instructions for users
@@ -47,3 +44,6 @@ In your README.md, add the information to use `renv::restore()` to let collabora
 
 If the lock file just isn't correct, or you need to update all the packages, you can re-use `renv::init()` to start over. 
 
+5) package development caveats
+
+When building a package tarball, R will copy all files within the package directory to a temporary build directory including the renv library which could be slow if this folder was large.  See https://cran.r-project.org/web/packages/renv/vignettes/packages.html for a work-around and other hints on apckage development.  
