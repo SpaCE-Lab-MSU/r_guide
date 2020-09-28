@@ -3,17 +3,21 @@
 Some details about your code depends on who is running it, or where you are running it, or requires personal secrets such as API keys or passwords.   If details are hard-coded into your functions or scripts, it will be hard to share your scripts with collaborators but also for reproducibility.    
 
 One constant problem is scripts need to read files from somewhere, and everyone's computer has different paths, or the paths differ when run in a different environment (e.g. on a high performance computer).    We often see scripts with the configuration variables at the top of the script,  and you have to edit those to your environment, or comment them out.  But then those go into the git repository, so collaborators have to change them back.    Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example.  It's hard to track down all the places where you have to change these parameters (although global search/replace helps).   But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project
-Solution
+
+### Solution
 
 R has a built in feature exactly for this purpose - automaticaly reading a file called `.Renviron` .   Using files that start with "." (so-called dot-files) for configuration is common in Linux (and these files are hidden).  Note There are a couple of libraries to make this a bit more slick, but this document describes only features that are part of Base R.   We can add description of how to incorporate those below
 
-Good summary of .Renviron : www.dartistics.com/renviron.html
+#### About Environment Variables
+ 
+  * Not a bad summary: https://en.wikipedia.org/wiki/Environment_variable
+  * (Mac/Linux) https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30
 
-Not a bad summary of Environment variables : https://en.wikipedia.org/wiki/Environment_variable
+References for learning about Renviron and the R start-up process: 
 
-More detail on Environment vars in Mac/Linux : https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30
-
-To see how R reads dot-files .Renviron and .Rprofile, read the R help ?Startup or see this copy on the web ( I don't know how current the copy is) : https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Startup
+  * Good summary of .Renviron : https://www.dartistics.com/renviron.html 
+  * Within R/Rstudio, see the help topic ?base::Startup
+  * [Jenny Bryan's chapter on R start-up](https://rstats.wtf/r-startup.html) from her book https://rstats.wtf
 
 Note that there is also a package called "startup" on CRAN which is an enhancement and not part of base R. 
 
