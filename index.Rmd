@@ -1,16 +1,16 @@
 --- 
-title: "R Guide for Spatial Ecology"
-author: ["Patrick Bills, MSU SpaCElab", "Phoebe Zarnetske, MSU SpaCElab"]
+title: "R Guide for Spatial & Community Ecology"
+author: ["Patrick Bills, MSU SpaCE Lab", "Phoebe Zarnetske, MSU SpaCE Lab"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 github-repo: space-lab-msu/r_guide
-description: "Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab  "
+description: "Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE Lab"
 ---
 
 # Welcome {-}
 
-This guide came from the [Spatial & Community Ecology Lab](https://www.communityecologylab.com/) at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial Community and Ecology lab.  
+This guide came from the [Spatial & Community Ecology Lab (SpaCE Lab)](https://www.communityecologylab.com/) at Michigan State Univeristy, and is a collection of techinques, styles, suggestions and requirements for collaboratively writing R code for the MSU Spatial & Community Ecology lab.  
 
 A programming "style" guide has detailed descriptions of exactly how code is formatted with spacing, indents, function and variable naming, etc.   Thee are usually written for professional programmers.   This guide is for our R users of varying skill levels and focuses on approaches to broad programming issues (like how to manage configuration, or data organization) that use to allow for collaboration and longevity.  Nothing in here is set in stone and is open for suggestion and additions.  There will be some formatting and style requirement.   For coding style, we refer to, but don't require the use of the "tidy verse" style guide originally written at google and adopted and amended by Hadley Wickham: (https://style.tidyverse.org/)[https://style.tidyverse.org/]
 
