@@ -4,28 +4,29 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Configuration | R Guide for Spatial Ecology</title>
-  <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
+  <title>Chapter 3 Configuration | R Guide for Spatial &amp; Community Ecology</title>
+  <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE Lab" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Configuration | R Guide for Spatial Ecology" />
+  <meta property="og:title" content="Chapter 3 Configuration | R Guide for Spatial &amp; Community Ecology" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
+  <meta property="og:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE Lab" />
   <meta name="github-repo" content="space-lab-msu/r_guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Configuration | R Guide for Spatial Ecology" />
+  <meta name="twitter:title" content="Chapter 3 Configuration | R Guide for Spatial &amp; Community Ecology" />
   
-  <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE lab" />
+  <meta name="twitter:description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE Lab" />
   
 
-<meta name="author" content="Patrick Bills, MSU SpaCElab" />
-<meta name="author" content="Phoebe Zarnetske, MSU SpaCElab" />
+<meta name="author" content="Patrick Bills, MSU SpaCE Lab" />
+<meta name="author" content="Phoebe Zarnetske, MSU SpaCE Lab" />
+<meta name="author" content="your name here! (see contributing below)" />
 
 
-<meta name="date" content="2020-09-28" />
+<meta name="date" content="2021-03-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,6 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
 <li class="chapter" data-level="3" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>3</b> Configuration</a>
 <ul>
+<li class="chapter" data-level="3.0.1" data-path="configuration.html"><a href="configuration.html#solution"><i class="fa fa-check"></i><b>3.0.1</b> Solution</a></li>
 <li class="chapter" data-level="3.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>3.1</b> Quick Points on Configuration</a></li>
 <li class="chapter" data-level="3.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>3.2</b> Using Renviron</a></li>
 <li class="chapter" data-level="3.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>3.3</b> File Paths STandard Configuration</a></li>
@@ -162,8 +164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="package-management.html"><a href="package-management.html"><i class="fa fa-check"></i><b>5</b> Package Management</a>
 <ul>
-<li class="chapter" data-level="5.0.1" data-path="package-management.html"><a href="package-management.html#getting-started"><i class="fa fa-check"></i><b>5.0.1</b> Getting Started</a></li>
-<li class="chapter" data-level="5.0.2" data-path="package-management.html"><a href="package-management.html#additional-actions"><i class="fa fa-check"></i><b>5.0.2</b> Additional actions</a></li>
+<li class="chapter" data-level="5.1" data-path="package-management.html"><a href="package-management.html#renv"><i class="fa fa-check"></i><b>5.1</b> renv</a></li>
+<li class="chapter" data-level="5.2" data-path="package-management.html"><a href="package-management.html#renv-usage-notes"><i class="fa fa-check"></i><b>5.2</b> renv usage notes</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>6</b> Writing Scripts</a>
 <ul>
@@ -196,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Guide for Spatial Ecology</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Guide for Spatial &amp; Community Ecology</a>
           </h1>
         </div>
 
@@ -207,15 +209,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="configuration" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Configuration</h1>
 <p>Some details about your code depends on who is running it, or where you are running it, or requires personal secrets such as API keys or passwords. If details are hard-coded into your functions or scripts, it will be hard to share your scripts with collaborators but also for reproducibility.</p>
-<p>One constant problem is scripts need to read files from somewhere, and everyone’s computer has different paths, or the paths differ when run in a different environment (e.g. on a high performance computer). We often see scripts with the configuration variables at the top of the script, and you have to edit those to your environment, or comment them out. But then those go into the git repository, so collaborators have to change them back. Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example. It’s hard to track down all the places where you have to change these parameters (although global search/replace helps). But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project
-Solution</p>
+<p>One constant problem is scripts need to read files from somewhere, and everyone’s computer has different paths, or the paths differ when run in a different environment (e.g. on a high performance computer). We often see scripts with the configuration variables at the top of the script, and you have to edit those to your environment, or comment them out. But then those go into the git repository, so collaborators have to change them back. Even for your own scripts, you may want to change a file path depending on if you are running on your laptop or on the HPC for example. It’s hard to track down all the places where you have to change these parameters (although global search/replace helps). But it would be better if there was a single, consistent place to put all configuration values shared by scripts in a project</p>
+<div id="solution" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Solution</h3>
 <p>R has a built in feature exactly for this purpose - automaticaly reading a file called <code>.Renviron</code> . Using files that start with “.” (so-called dot-files) for configuration is common in Linux (and these files are hidden). Note There are a couple of libraries to make this a bit more slick, but this document describes only features that are part of Base R. We can add description of how to incorporate those below</p>
-<p>Good summary of .Renviron : www.dartistics.com/renviron.html</p>
-<p>Not a bad summary of Environment variables : <a href="https://en.wikipedia.org/wiki/Environment_variable" class="uri">https://en.wikipedia.org/wiki/Environment_variable</a></p>
-<p>More detail on Environment vars in Mac/Linux : <a href="https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30" class="uri">https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30</a></p>
-<p>To see how R reads dot-files .Renviron and .Rprofile, read the R help ?Startup or see this copy on the web ( I don’t know how current the copy is) : <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Startup" class="uri">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Startup</a></p>
+<div id="about-environment-variables" class="section level4" number="3.0.1.1">
+<h4><span class="header-section-number">3.0.1.1</span> About Environment Variables</h4>
+<ul>
+<li>Not a bad summary: <a href="https://en.wikipedia.org/wiki/Environment_variable" class="uri">https://en.wikipedia.org/wiki/Environment_variable</a></li>
+<li>(Mac/Linux) <a href="https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30" class="uri">https://dev.to/gajesh/environment-variables-in-linux-and-mac-os-4j30</a></li>
+</ul>
+<p>References for learning about Renviron and the R start-up process:</p>
+<ul>
+<li>Good summary of .Renviron : <a href="https://www.dartistics.com/renviron.html" class="uri">https://www.dartistics.com/renviron.html</a></li>
+<li>Within R/Rstudio, see the help topic ?base::Startup</li>
+<li><a href="https://rstats.wtf/r-startup.html">Jenny Bryan’s chapter on R start-up</a> from her book <a href="https://rstats.wtf" class="uri">https://rstats.wtf</a></li>
+</ul>
 <p>Note that there is also a package called “startup” on CRAN which is an enhancement and not part of base R.</p>
 <p>.Renviron is for setting values for script configuration. It uses the Operating System Environment to store these (e.g. not the same as an R environment), e.g. “environment variables” Any program can read or set an environment variable. One commonly used variable is $HOME which is your home directory.</p>
+</div>
+</div>
 <div id="quick-points-on-configuration" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Quick Points on Configuration</h2>
 <p>when R starts it looks for two files</p>
