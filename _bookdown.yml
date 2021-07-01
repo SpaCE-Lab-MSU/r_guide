@@ -14,5 +14,6 @@ rmd_files: [
   "script_organization.Rmd",
   "git.Rmd",
   "make.Rmd",
+  "R_plotting.Rmd",
 
 ]
