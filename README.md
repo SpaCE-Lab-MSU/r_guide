@@ -18,7 +18,7 @@ If you want to quickly suggest content or just have a short idea or correction, 
 
 If you want to edit files, clone or fork this repository.   
 
-Then simply edit any one of the chapter files (Rmd files that begin with a two digit numeral) as you would edit an Rmarkdown file, or just add plain text.   If you want to add a new chapter, simply start a new Rmarkdown file, The first line of a new file must be code as a header with a single `#`  (e.g. `# Tracking Woozles`) which will be the chapter title.   IF there are any issues we are happy edit so your ideas can be incorporated.  
+Then simply edit any one of the chapter files (Rmd files in the main directory of this repository) as you would edit an Rmarkdown file, or just add plain text.   If you want to add a new chapter, simply start a new Rmarkdown file, The first line of a new file must be code as a header with a single `#`  (e.g. `# Tracking Woozles`) which will be the chapter title.   IF there are any issues we are happy edit so your ideas can be incorporated.  
 
 If you are a lab collaborator and have a found a successful technique we want to hear about it.   Consider a new chapter describing this and pointers to examples on github.  
 
