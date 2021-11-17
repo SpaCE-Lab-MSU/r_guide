@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 RMarkdown | R Guide for Spatial &amp; Community Ecology</title>
   <meta name="description" content="Collection of R programming techniques and guidelines for collaborating with the MSU SpaCE Lab" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 RMarkdown | R Guide for Spatial &amp; Community Ecology" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="your name here! (see contributing below)" />
 
 
-<meta name="date" content="2021-07-01" />
+<meta name="date" content="2021-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
   
 <link rel="prev" href="configuration.html"/>
 <link rel="next" href="package-management.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,24 +53,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,7 +86,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -122,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -139,10 +135,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">MSU SpaCElab R Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i><b>0.1</b> Contributing</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="1" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R?</a></li>
 <li class="chapter" data-level="1.2" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#installing-r"><i class="fa fa-check"></i><b>1.2</b> Installing R</a></li>
 <li class="chapter" data-level="1.3" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#installing-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing RStudio</a></li>
@@ -150,38 +148,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="installing-r-and-rstudio.html"><a href="installing-r-and-rstudio.html#next"><i class="fa fa-check"></i><b>1.5</b> Next</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
-<li class="chapter" data-level="3" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>3</b> Configuration</a><ul>
+<li class="chapter" data-level="3" data-path="configuration.html"><a href="configuration.html"><i class="fa fa-check"></i><b>3</b> Configuration</a>
+<ul>
 <li class="chapter" data-level="3.0.1" data-path="configuration.html"><a href="configuration.html#solution"><i class="fa fa-check"></i><b>3.0.1</b> Solution</a></li>
 <li class="chapter" data-level="3.1" data-path="configuration.html"><a href="configuration.html#quick-points-on-configuration"><i class="fa fa-check"></i><b>3.1</b> Quick Points on Configuration</a></li>
 <li class="chapter" data-level="3.2" data-path="configuration.html"><a href="configuration.html#using-renviron"><i class="fa fa-check"></i><b>3.2</b> Using Renviron</a></li>
 <li class="chapter" data-level="3.3" data-path="configuration.html"><a href="configuration.html#file-paths-standard-configuration"><i class="fa fa-check"></i><b>3.3</b> File Paths STandard Configuration</a></li>
 <li class="chapter" data-level="3.4" data-path="configuration.html"><a href="configuration.html#r-packages-for-configuration"><i class="fa fa-check"></i><b>3.4</b> R Packages for Configuration</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> RMarkdown</a><ul>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> RMarkdown</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#examples-of-rmarkdown"><i class="fa fa-check"></i><b>4.1</b> Examples of RMarkdown:</a></li>
 <li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-notebooks"><i class="fa fa-check"></i><b>4.2</b> R Notebooks</a></li>
 <li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#rmarkdown-knittr-and-file-paths"><i class="fa fa-check"></i><b>4.3</b> RMarkdown, Knittr and File paths</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="package-management.html"><a href="package-management.html"><i class="fa fa-check"></i><b>5</b> Package Management</a><ul>
+<li class="chapter" data-level="5" data-path="package-management.html"><a href="package-management.html"><i class="fa fa-check"></i><b>5</b> Package Management</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="package-management.html"><a href="package-management.html#renv"><i class="fa fa-check"></i><b>5.1</b> renv</a></li>
 <li class="chapter" data-level="5.2" data-path="package-management.html"><a href="package-management.html#renv-usage-notes"><i class="fa fa-check"></i><b>5.2</b> renv usage notes</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>6</b> Writing Scripts</a><ul>
-<li class="chapter" data-level="6.1" data-path="writing-scripts.html"><a href="writing-scripts.html#naming-things"><i class="fa fa-check"></i><b>6.1</b> Naming Things</a><ul>
+<li class="chapter" data-level="6" data-path="writing-scripts.html"><a href="writing-scripts.html"><i class="fa fa-check"></i><b>6</b> Writing Scripts</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="writing-scripts.html"><a href="writing-scripts.html#naming-things"><i class="fa fa-check"></i><b>6.1</b> Naming Things</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="writing-scripts.html"><a href="writing-scripts.html#script-file-names"><i class="fa fa-check"></i><b>6.1.1</b> Script File Names</a></li>
 <li class="chapter" data-level="6.1.2" data-path="writing-scripts.html"><a href="writing-scripts.html#variable-and-function-names"><i class="fa fa-check"></i><b>6.1.2</b> <strong>Variable and Function Names</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="writing-scripts.html"><a href="writing-scripts.html#writing-code"><i class="fa fa-check"></i><b>6.2</b> writing code</a><ul>
+<li class="chapter" data-level="6.2" data-path="writing-scripts.html"><a href="writing-scripts.html#writing-code"><i class="fa fa-check"></i><b>6.2</b> writing code</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="writing-scripts.html"><a href="writing-scripts.html#editor"><i class="fa fa-check"></i><b>6.2.1</b> <strong>Editor</strong></a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-scripts.html"><a href="writing-scripts.html#line-endings"><i class="fa fa-check"></i><b>6.2.2</b> <strong>Line Endings</strong></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="using-r-with-git.html"><a href="using-r-with-git.html"><i class="fa fa-check"></i><b>7</b> Using R with Git</a></li>
-<li class="chapter" data-level="8" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html"><i class="fa fa-check"></i><b>8</b> Data Generation Workflow with “Make”</a><ul>
+<li class="chapter" data-level="8" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html"><i class="fa fa-check"></i><b>8</b> Data Generation Workflow with “Make”</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html#motivation"><i class="fa fa-check"></i><b>8.1</b> Motivation</a></li>
 <li class="chapter" data-level="8.2" data-path="data-generation-workflow-with-make.html"><a href="data-generation-workflow-with-make.html#usage"><i class="fa fa-check"></i><b>8.2</b> Usage</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="making-plots-in-r.html"><a href="making-plots-in-r.html"><i class="fa fa-check"></i><b>9</b> Making Plots in R</a><ul>
+<li class="chapter" data-level="9" data-path="making-plots-in-r.html"><a href="making-plots-in-r.html"><i class="fa fa-check"></i><b>9</b> Making Plots in R</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="making-plots-in-r.html"><a href="making-plots-in-r.html#ggplot2"><i class="fa fa-check"></i><b>9.1</b> ggplot2</a></li>
 <li class="chapter" data-level="9.2" data-path="making-plots-in-r.html"><a href="making-plots-in-r.html#base-r-plotting"><i class="fa fa-check"></i><b>9.2</b> Base R plotting</a></li>
 <li class="chapter" data-level="9.3" data-path="making-plots-in-r.html"><a href="making-plots-in-r.html#color-on-plots"><i class="fa fa-check"></i><b>9.3</b> Color on plots</a></li>
@@ -207,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmarkdown" class="section level1">
+<div id="rmarkdown" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> RMarkdown</h1>
 <p>After you’ve written source code and maybe a package, an RMarkdown document is a good way to demonstrate how to use your code and results. R Markdown is an authoring framework for R code and output. R Markdown is part word-processor, part R output. It enables you to generate nice reports with R code, figures, tables, and text. It’s handy because it produces neat summaries of your work in HTML or PDF or other formats (Word docs).</p>
 <p>R Markdown is especially helpful with collaborative research and coursework, and is often used in supplemental materials with publications. If you haven’t already watched the R Markdown tutorial, you may want to refer to it when putting together an analysis write-up: <a href="http://rmarkdown.rstudio.com/lesson-1.html" class="uri">http://rmarkdown.rstudio.com/lesson-1.html</a> (including “How it Works”, “Code Chunks”, and “Markdown Basics”). I recommend using “KnitR” when you want to publish (i.e., click on “knit to HTML”, “knit to PDF”, etc. in the pull-down menu in RStudio).</p>
@@ -220,17 +226,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>I like this intro because the author was a grad student: <a href="https://rpubs.com/brandonkopp/RMarkdown" class="uri">https://rpubs.com/brandonkopp/RMarkdown</a></li>
 <li>Communicating with R Markdown: A full-day workshop for users who want to get more out of R Markdown (and friends): <a href="https://ysc-rmarkdown.netlify.app/" class="uri">https://ysc-rmarkdown.netlify.app/</a></li>
 </ul>
-<div id="examples-of-rmarkdown" class="section level2">
+<div id="examples-of-rmarkdown" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Examples of RMarkdown:</h2>
 <p>All of the tutorials form <a href="https://ourcodingclub.github.io/tutorials.html" class="uri">https://ourcodingclub.github.io/tutorials.html</a> are written in RMarkdown. You can view these tutorials in the github repository for their website, e.g <a href="https://github.com/ourcodingclub/ourcodingclub.github.io/tree/master/_tutorials" class="uri">https://github.com/ourcodingclub/ourcodingclub.github.io/tree/master/_tutorials</a> If you open any one of these .md files in github and click ‘raw’ you see the markdown code.</p>
 <p>Note that Rstudio is not required to use RMarkdown but it’s the entry point for most. Rstudio has extended Rmarkdown to make it interactive for reporting (e.g. with Shiny, another topic entirely)</p>
 </div>
-<div id="r-notebooks" class="section level2">
+<div id="r-notebooks" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> R Notebooks</h2>
 <p>This is an Rstudio feature that builds up on RMarkdown and is a way to interactively create an RMarkdown file much like the Rconsole. It’s patterned after Jupyter Notebooks used for Python. It’s not required to write RMarkdown.</p>
 <p>Rstudio also has a feature where you can run chunks of code one by one before knitting, similar to the experience of Python notebooks.</p>
 </div>
-<div id="rmarkdown-knittr-and-file-paths" class="section level2">
+<div id="rmarkdown-knittr-and-file-paths" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> RMarkdown, Knittr and File paths</h2>
 <p>Sometimes your markdown file or your code depends on files beiung in particular paths (e.g. data files). When you source a script from the console, the working directory is what ever you’ve swet it to, or the top directory of your Rstudio project if you haven’t. This is also true when you run chunks in an Rmarkdown file as descrihbed above.</p>
 <p>However, when you ‘knit’ an Rmd file, the working directory is set (setwd() ) to the directory in which the markdown file sits. This is different, and your markdown file may not be able to find files when using knittr than when you ran ti before.</p>
@@ -286,7 +292,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
