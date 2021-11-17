@@ -27,9 +27,9 @@ Note that there is also a package called "startup" on CRAN which is an enhanceme
 
 when R starts it looks for two files 
 
-.Renviron   <- set of environment variables listed in here.  Written as shell script
+`.Renviron`   **set of environment variables listed in here.  Written as shell script: use '=' for assignment with no spaces, e.g. `PATH=/home/me/data`**
 
-.Rprofile  <- options for how you like to use R.  written as R code
+`.Rprofile`  **options for how you like to use R.  Written as R code, use '<-' or'=' for assignment**
 
 If these files are in the local directory, it reads those and stops. 
 
@@ -74,9 +74,13 @@ saveStuff <- function(x,y, output_path){
 The main script to run then would 
 
 ```{r eval=FALSE}
-x = rnorm(100)
-y = rnorm(100)
-output_path <-Sys.getenv('OUTPUT_PATH')
+x <- rnorm(100)
+y <- rnorm(100)
+
+# get the value of the output_path from the OS environment
+output_path <- Sys.getenv('OUTPUT_PATH')
+
+# use the value of the output path without hard-coding a value that works only for you
 saved_file <- saveStuff(x, y, output_path)
 ```
 
