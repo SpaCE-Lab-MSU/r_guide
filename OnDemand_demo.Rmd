@@ -1,0 +1,145 @@
+---
+title: "OnDemand_demo"
+author: "Beth Gerstner"
+date: "11/13/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+# Section 1: Getting into OnDemand  
+
+1. First, make sure you have access to the HPC. These instructions are for interfacing with the HPC easily (e.g., manipulating folders, getting file paths etc) (***Pat feel free to fill this in***)  
+PC: MobaXTerm  
+Mac: Terminal/Map Drive to computer  
+
+2. Go to this website to access OnDemand and log in:
+<https://cilogon.org/authorize?response_type=code&scope=openid%20profile%20email%20org.cilogon.userinfo&client_id=cilogon%3A%2Fclient_id%2F7f3abb985356946fa1f68d2de33720c4&state=drcrhIfwovJY6Y2-LS4vcNuPo9M&redirect_uri=https%3A%2F%2Fondemand.hpcc.msu.edu%2Foidc&nonce=zWT82pJsMzLQDyS4mYD94XU132-ijxZ1FC6bjAkHIy8&idphint=urn%3Amace%3Aincommon%3Amsu.edu>
+
+3. Go to interactive jobs --> RStudio
+
+4. Set parameters for the job you want to run
+
+  **In this case you do not need something super powerful. Number of hours can be 1, core can be 4, amount of memory 16gb. Once you submit you'll have to wait for your job to start. When it's ready you'll be able to launch it**
+
+5. Click the launch button and you're officially in RStudio.
+
+6. Download all required data from this website, upload this onto the HPC if necessary. Also have file paths within the code (Will this work for other people, Pat?)
+<https://drive.google.com/drive/folders/1atnF8zOh8gun2ML-mxCl0rxIfaorrq33?usp=sharing>
+
+# Section 2: Worked example
+Original Author: Beth E. Gerstner
+
+Title: Trait count barplot
+
+Project: Frugivoria
+
+Data input: Frugivoria_bird_database.csv, Frugivoria_mammal_database.csv
+
+Data output: trait_count_barplot.pdf
+
+Overview: This script analyzes the trait composition of the database for newly added traits and creates a barplot. Also includes PanTHERIA to show how many of those overlapping traits we have filled for mammals.
+
+Packages to load
+```{r}
+
+library(dplyr)
+library(tidyr)
+library (ggplot2)
+```
+
+start a pdf to save all plots to
+```{r}
+pdf("trait_count_barplot.pdf")
+```
+
+Read in completed mammal database and run stats
+```{r}
+
+
+mam <- read.csv("/mnt/ufs18/rs-008/plz-lab/DATA/neotropical_frugivores/OnDemand/Frugivoria_mammal_database_2022.csv")
+#read in bird database
+bird <-read.csv("/mnt/ufs18/rs-008/plz-lab/DATA/neotropical_frugivores/OnDemand/Frugivoria_bird_database_2022.csv")
+
+# Quantify new bird traits
+longevity_b <- length(which(!is.na(bird$longevity)))
+home_range_b <- length(which(!is.na(bird$home_range_size)))
+habitat_special_b <- length(which(!is.na(bird$habitat_specialization)))
+gen_time_b <- length(which(!is.na(bird$generation_time)))
+body_size_b <- length(which(!is.na(bird$body_size_mm)))
+sexual_dim_b <- length(which(!is.na(bird$sexual_dimorphism)))
+range_1_b <- length(which(!is.na(bird$observed_range_sqkm)))
+range_2_b <-  length(which(!is.na(bird$inferred_range_sqkm)))
+
+# New mammal traits
+
+#count the number of newly added traits
+diet_categ_m <- length(which(!is.na(mam$diet_cat)))
+longevity_m <- length(which(!is.na(mam$longevity)))
+home_range_m <- length(which(!is.na(mam$home_range_size)))
+habitat_special_m <- length(which(!is.na(mam$habitat_specialization)))
+gen_time_m <- length(which(!is.na(mam$generation_time)))
+body_size_m<- length(which(!is.na(mam$body_size_mm)))
+sexual_dim_m <- length(which(!is.na(mam$sexual_dimorphism)))
+range_1_m <- length(which(!is.na(mam$observed_range_sqkm)))
+range_2_m <-  length(which(!is.na(mam$inferred_range_sqkm)))
+
+# PanTHERIA traits
+diet_categ_m_p <- length(which(!is.na(mam$diet_cat_p)))
+longevity_m_p <- length(which(!is.na(mam$max_longevity_m_p)))
+home_range_m_p <- length(which(!is.na(mam$home_range_km2_p)))
+habitat_special_m_p <- length(which(!is.na(mam$habitat_specialization_p)))
+gen_time_m_p <- length(which(!is.na(mam$generation_time_p)))
+body_size_m_p<- length(which(!is.na(mam$body_size_mm_p)))
+sexual_dim_m_p <- length(which(!is.na(mam$sexual_dimorphism_p)))
+range_1_m_p <- length(which(!is.na(mam$GR_area_km2_p)))
+range_2_m_p <-  length(which(!is.na(mam$inferred_range_sqkm_p)))
+
+
+#Bird Traits 
+
+#Birds change names of traits
+bird_df <- data.frame(longevity_b,home_range_b,range_1_b, habitat_special_b, gen_time_b, body_size_b,sexual_dim_b) #left out range_2 for visualization purposes because it will be the same values at range_1.
+
+#change names of traits
+oldnames = c("longevity_b", "home_range_b","range_1_b","habitat_special_b", "gen_time_b", "body_size_b", "sexual_dim_b")
+newnames = c("longevity", "home_range","range_size","habitat_special", "gen_time", "body_size", "sexual_dim")
+
+bird_df_wide <-bird_df %>% rename_at(vars(oldnames), ~ newnames)
+
+#Mammals change names of traits
+mam_df <- data.frame(longevity_m,home_range_m,range_1_m, habitat_special_m, gen_time_m, body_size_m,sexual_dim_m)
+
+#change names of traits
+oldnames.m = c("longevity_m", "home_range_m","range_1_m","habitat_special_m", "gen_time_m", "body_size_m", "sexual_dim_m")
+newnames.m = c("longevity", "home_range","range_size","habitat_special", "gen_time", "body_size", "sexual_dim")
+
+mam_df_wide <-mam_df %>% rename_at(vars(oldnames.m), ~ newnames.m)
+
+# Pantheria change names of traits
+#Mammals change names of traits
+mam_df_p <- data.frame(longevity_m_p,home_range_m_p,range_1_m_p,habitat_special_m_p, gen_time_m_p, body_size_m_p, sexual_dim_m_p)
+
+#change names of traits
+oldnames.m.p = c("longevity_m_p", "home_range_m_p","range_1_m_p","habitat_special_m_p", "gen_time_m_p", "body_size_m_p", "sexual_dim_m_p")
+newnames.m.p = c("longevity", "home_range","range_size", "habitat_special", "gen_time", "body_size", "sexual_dim")
+
+mam_df_wide.p <-mam_df_p %>% rename_at(vars(oldnames.m.p), ~ newnames.m.p)
+
+#joining bird and mammal data
+full_wide_trait_db <- rbind(mam_df_wide, bird_df_wide, mam_df_wide.p)
+
+#convert this from wide to long format so we can put into ggplot2
+full_long_trait_db <-gather(full_wide_trait_db,trait, species)
+full_long_trait_db$taxa <-c("mammals", "birds", "PanTHERIA", "mammals", "birds","PanTHERIA", "mammals", "birds", "PanTHERIA","mammals", "birds","PanTHERIA","mammals", "birds", "PanTHERIA","mammals","birds","PanTHERIA","mammals", "birds","PanTHERIA")
+
+#need the traits to be a factor
+full_long_trait_db$trait <-as.factor(full_long_trait_db$trait)
+
+#plot traits
+all_new_traits <-ggplot(full_long_trait_db, aes(x=trait, y=species, fill=taxa, color)) + scale_fill_manual(values = c("birds" = "lightcoral", "mammals" = "lightseagreen","PanTHERIA" = "grey51"))+ labs(x = "New Frugivoria traits", y = "# species with trait") +
+  geom_bar(stat="identity", position=position_dodge()) +geom_hline(yintercept=599, color="lightseagreen") + geom_hline(yintercept=1148, color="lightcoral") + theme(panel.background = element_rect(fill = "white"))
+
+#add trait labels
+all_new_traits + scale_x_discrete(labels = c("body size", "gen time", "habitat special","home range","longevity", "range size", "sexual dim")) + theme(axis.line = element_line(color="black", size = .2))
